@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 import { url } from "../utils.";
 
+axios.defaults.withCredentials = true;
 const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: "" }) =>
   async ({ url, method, data, params }) => {
@@ -22,7 +23,6 @@ export const ordersApi = createApi({
   reducerPath: "orderApi",
   baseQuery: axiosBaseQuery({
     baseUrl: `${url}/api/v1/orders`,
-    withCredentials: true,
   }),
   endpoints: (build) => ({
     createOrder: build.mutation({
