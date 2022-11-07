@@ -2,12 +2,17 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 import { url } from "../utils.";
 
-axios.defaults.withCredentials = true;
 const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: "" }) =>
   async ({ url, method, data, params }) => {
     try {
-      const result = await axios({ url: baseUrl + url, method, data, params });
+      const result = await axios({
+        url: baseUrl + url,
+        method,
+        data,
+        params,
+        withCredentials: true,
+      });
       return { data: result.data };
     } catch (axiosError) {
       let err = axiosError;
@@ -38,7 +43,7 @@ export const ordersApi = createApi({
       query: ({ ...rest }) => {
         return {
           url: `/?filter=${rest.orderStatus}&page=${rest.page}`,
-          method: "GET",
+          method: "get",
         };
       },
     }),
@@ -47,7 +52,7 @@ export const ordersApi = createApi({
       query: (id) => {
         return {
           url: `/${id}`,
-          method: "GET",
+          method: "get",
         };
       },
     }),
@@ -56,7 +61,7 @@ export const ordersApi = createApi({
       query: ({ id, orderStatus }) => {
         return {
           url: `/${id}`,
-          method: "PATCH",
+          method: "patch",
           data: { orderStatus },
         };
       },

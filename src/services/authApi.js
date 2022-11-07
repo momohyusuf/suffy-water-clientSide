@@ -2,12 +2,17 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 import { url } from "../utils.";
 
-axios.defaults.withCredentials = true;
 const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: "" }) =>
   async ({ url, method, data, params }) => {
     try {
-      const result = await axios({ url: baseUrl + url, method, data, params });
+      const result = await axios({
+        url: baseUrl + url,
+        method,
+        data,
+        params,
+        withCredentials: true,
+      });
       return { data: result.data };
     } catch (axiosError) {
       let err = axiosError;
@@ -24,6 +29,7 @@ export const authApi = createApi({
   baseQuery: axiosBaseQuery({
     baseUrl: `${url}/api/v1/auth`,
   }),
+
   endpoints: (build) => ({
     loginAdmin: build.mutation({
       query: (body) => {
