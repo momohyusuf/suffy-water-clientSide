@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Homepage from "./pages/homepage/Homepage";
+import { Routes, Route } from "react-router-dom";
+import SharedLayout from "./components/SharedLayout";
+import PlaceOrder from "./pages/place-order/PlaceOrder";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleAlert } from "./features/order/orderSlice";
+import Admin from "./pages/admin/Admin";
+import Login from "./auth/login/Login";
+import PrivateRoutes from "./components/PrivateRoutes";
 
-function App() {
+const App = () => {
+  const { alert } = useSelector((state) => state.order);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      dispatch(
+        toggleAlert({
+          showAlert: false,
+          message: "",
+        })
+      );
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeOut);
+    };
+  }, [alert.showAlert]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Homepage />} />
+        <Route path="place-order" element={<PlaceOrder />} />
+        <Route path="login" element={<Login />} />
+      </Route>
+      <Route element={<PrivateRoutes />}>
+        <Route path="/admin" element={<Admin />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
