@@ -22,7 +22,7 @@ const HomePageSidebar = () => {
             navigate("/login");
           }}
         >
-          Login{" "}
+          Log in{" "}
           <span
             style={{
               fontSize: "0.6rem",

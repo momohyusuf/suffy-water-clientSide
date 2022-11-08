@@ -29,6 +29,7 @@ export const ordersApi = createApi({
   baseQuery: axiosBaseQuery({
     baseUrl: `${url}/api/v1/orders`,
   }),
+  tagTypes: ["Orders"],
   endpoints: (build) => ({
     createOrder: build.mutation({
       query: (body) => {
@@ -38,6 +39,7 @@ export const ordersApi = createApi({
           data: body,
         };
       },
+      invalidatesTags: ["Orders"],
     }),
     getAllOrders: build.mutation({
       query: ({ ...rest }) => {
@@ -46,6 +48,7 @@ export const ordersApi = createApi({
           method: "get",
         };
       },
+      providesTags: "Orders",
     }),
 
     getSingleOrder: build.mutation({
@@ -65,6 +68,7 @@ export const ordersApi = createApi({
           data: { orderStatus },
         };
       },
+      invalidatesTags: ["Orders"],
     }),
   }),
 });
