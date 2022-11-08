@@ -40,7 +40,9 @@ const Login = () => {
       dispatch(updateAdmin(response.data));
       dispatch(toggleIsLoading(false));
       navigate("/admin");
-    } else {
+    }
+
+    if (response.error.data.message) {
       dispatch(
         toggleAlert({
           showAlert: true,
@@ -48,6 +50,14 @@ const Login = () => {
         })
       );
       dispatch(toggleIsLoading(false));
+    } else if (response.error.status === "FETCH_ERROR" || response.error.data) {
+      dispatch(toggleIsLoading(false));
+      dispatch(
+        toggleAlert({
+          showAlert: true,
+          message: "Network Error try again later",
+        })
+      );
     }
   };
   // +++++++++++++++++++++++++++++++++
@@ -70,7 +80,7 @@ const Login = () => {
       <section
         className="form--container"
         style={{
-          marginBottom: "0",
+          marginBottom: "3em",
           height: "calc(100vh - 300px)",
         }}
       >

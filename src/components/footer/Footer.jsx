@@ -10,15 +10,15 @@ const Footer = () => {
         <section>
           <div
             style={{
-              padding: "0.5em 0",
+              padding: "0.7em 0",
             }}
           >
-            <address>
+            <p>
               <MdLocationPin color="Red" /> Kes Corner Old Auchi Road,
               <br />
               Aviele, Estako West LGA,
               <br /> Edo Sate.
-            </address>
+            </p>
             <p>
               <BiPhoneCall
                 style={{
@@ -34,12 +34,12 @@ const Footer = () => {
               paddingBottom: "2.5em",
             }}
           >
-            <address>
+            <p>
               <MdLocationPin color="Red" /> Plot No: Bwari/FO2/1293,
               <br />
               Action Layout, Arab Contractor Road,
               <br /> FCT-Abuja.
-            </address>
+            </p>
             <p>
               <BiPhoneCall
                 style={{

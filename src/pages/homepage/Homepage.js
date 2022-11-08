@@ -13,10 +13,10 @@ import { useShowCurrentAdminMutation } from "../../services/authApi";
 import { toggleIsLoading } from "../../features/order/orderSlice";
 import { useNavigate } from "react-router-dom";
 import { updateAdmin } from "../../features/admin/adminSlice";
-import HomepagePreloader from "../../components/HomepagePreloader";
 
 const Homepage = () => {
-  const { isSidebarOpen, isLoading } = useSelector((state) => state.order);
+  const { isSidebarOpen } = useSelector((state) => state.order);
+
   const [showCurrentAdminMutation] = useShowCurrentAdminMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,7 +36,6 @@ const Homepage = () => {
     showAdmin();
   }, []);
 
-  if (isLoading) return <HomepagePreloader />;
   return (
     <div>
       <Navbar />

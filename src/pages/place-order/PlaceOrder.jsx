@@ -76,7 +76,7 @@ const PlaceOrder = () => {
       orderInformation,
       totalAmount,
     });
-    console.log(response);
+
     if (response.data) {
       dispatch(
         toggleModal({
@@ -105,7 +105,7 @@ const PlaceOrder = () => {
           message: response.error.data.message,
         })
       );
-    } else if (response.error.status === "FETCH_ERROR") {
+    } else if (response.error.status === "FETCH_ERROR" || response.error.data) {
       dispatch(toggleIsLoading(false));
       dispatch(
         toggleAlert({
