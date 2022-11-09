@@ -328,7 +328,6 @@ nav {
   button,
   select {
     width: 100%;
-    margin: 1em 0;
     padding: 0.6em 0;
     background-color: $secondary-color;
     border: 0;
@@ -341,6 +340,9 @@ nav {
     &:hover {
       box-shadow: $shadow;
     }
+  }
+  button {
+    margin: 1em 0;
   }
   button:hover,
   button:focus {
@@ -444,6 +446,7 @@ nav {
     }
   }
 }
+// admin page
 .admin--page--content--header {
   input {
     padding: 0.5em;

@@ -211,7 +211,16 @@ const PlaceOrder = () => {
             type="text"
             handleInputs={handleInputs}
           />
-
+          <p>
+            Location
+            <sup
+              style={{
+                color: "red",
+              }}
+            >
+              *
+            </sup>
+          </p>
           <select
             name="location"
             value={orderInformation.location}
@@ -219,7 +228,7 @@ const PlaceOrder = () => {
           >
             <option value="">--select your location--</option>
             <option value="Abuja"> Abuja</option>
-            <option value="Auchi">Auchi</option>
+            <option value="Estako-west">Estako west</option>
           </select>
           <p>
             Delivery Address
