@@ -13,6 +13,7 @@ import { useShowCurrentAdminMutation } from "../../services/authApi";
 import { toggleIsLoading } from "../../features/order/orderSlice";
 import { useNavigate } from "react-router-dom";
 import { updateAdmin } from "../../features/admin/adminSlice";
+import MobileImage from "../../components/homepage-content/MobileImage";
 
 const Homepage = () => {
   const { isSidebarOpen } = useSelector((state) => state.order);
@@ -42,6 +43,7 @@ const Homepage = () => {
       {isSidebarOpen && <HomePageSidebar />}
       <Hero />
       <WhyUs />
+      <MobileImage />
       <ImageIllustrations />
       <Reviews />
     </div>
