@@ -13,6 +13,7 @@ import Alert from "../../components/Alert";
 import { useCreateOrderMutation } from "../../services/ordersApi";
 import Navbar from "../../components/navbar/Navbar";
 import HomePageSidebar from "../../components/HomePageSidebar";
+import { updateIsPending } from "../../features/admin/adminSlice";
 
 const PlaceOrder = () => {
   const [orderInformation, setOrderInformation] = useState({
@@ -28,6 +29,7 @@ const PlaceOrder = () => {
   const { modal, isLoading, alert, isSidebarOpen } = useSelector(
     (state) => state.order
   );
+  const { isPending } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
   // ++++++++
   const [createOrderMutation] = useCreateOrderMutation();
@@ -70,7 +72,7 @@ const PlaceOrder = () => {
       );
       return;
     }
-    dispatch(toggleIsLoading(true));
+    dispatch(updateIsPending(true));
 
     const response = await createOrderMutation({
       orderInformation,
@@ -93,12 +95,12 @@ const PlaceOrder = () => {
         deliveryAddress: "",
         name: "",
       });
-      dispatch(toggleIsLoading(false));
+      dispatch(updateIsPending(false));
       return;
     }
 
     if (response.error.data.message) {
-      dispatch(toggleIsLoading(false));
+      dispatch(updateIsPending(false));
       dispatch(
         toggleAlert({
           showAlert: true,
@@ -106,7 +108,7 @@ const PlaceOrder = () => {
         })
       );
     } else if (response.error.status === "FETCH_ERROR" || response.error.data) {
-      dispatch(toggleIsLoading(false));
+      dispatch(updateIsPending(false));
       dispatch(
         toggleAlert({
           showAlert: true,
@@ -263,8 +265,8 @@ const PlaceOrder = () => {
             value={orderInformation.phoneNumber}
             handleInputs={handleInputs}
           />
-          <button onClick={handleSubmit} disabled={isLoading}>
-            {!isLoading ? <span>Confirm Order</span> : <PreloaderSmall />}
+          <button onClick={handleSubmit} disabled={isPending}>
+            {!isPending ? <span>Confirm Order</span> : <PreloaderSmall />}
           </button>
           <p style={{ textAlign: "center" }}>
             {" "}

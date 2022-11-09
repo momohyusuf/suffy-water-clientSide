@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PreloaderSmall from "../../components/PreloaderSmall";
-import { toggleIsLoading, toggleAlert } from "../../features/order/orderSlice";
+import { toggleAlert } from "../../features/order/orderSlice";
 import Alert from "../../components/Alert";
 import { useLoginAdminMutation } from "../../services/authApi";
-import { updateAdmin } from "../../features/admin/adminSlice";
+import { updateAdmin, updateIsPending } from "../../features/admin/adminSlice";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import HomePageSidebar from "../../components/HomePageSidebar";
@@ -18,6 +18,7 @@ const Login = () => {
   const { isLoading, alert, isSidebarOpen } = useSelector(
     (state) => state.order
   );
+  const { isPending } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // +++++++++++++++++++++
@@ -32,13 +33,13 @@ const Login = () => {
       );
       return;
     }
-    dispatch(toggleIsLoading(true));
+    dispatch(updateIsPending(true));
 
     const response = await loginAdminMutation(loginInformation);
 
     if (response.data) {
       dispatch(updateAdmin(response.data));
-      dispatch(toggleIsLoading(false));
+      dispatch(updateIsPending(false));
       navigate("/admin");
     }
 
@@ -49,9 +50,9 @@ const Login = () => {
           message: response?.error?.data?.message || response?.error?.message,
         })
       );
-      dispatch(toggleIsLoading(false));
+      dispatch(updateIsPending(false));
     } else if (response.error.status === "FETCH_ERROR" || response.error.data) {
-      dispatch(toggleIsLoading(false));
+      dispatch(updateIsPending(false));
       dispatch(
         toggleAlert({
           showAlert: true,
@@ -99,8 +100,8 @@ const Login = () => {
             onChange={handleInputs}
             type="password"
           />
-          <button disabled={isLoading}>
-            {!isLoading ? <span>Log In</span> : <PreloaderSmall />}
+          <button disabled={isPending}>
+            {!isPending ? <span>Log In</span> : <PreloaderSmall />}
           </button>
         </form>
       </section>
