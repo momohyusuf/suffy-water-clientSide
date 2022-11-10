@@ -26,7 +26,7 @@ const Reviews = () => {
               {" "}
               <h3>Muhammed Abubakar</h3>
               <small>
-                <MdLocationPin color="Red" />
+                <MdLocationPin color="#D62246" />
                 Auchi, Edo State.
               </small>
               <p>
@@ -42,7 +42,7 @@ const Reviews = () => {
               {" "}
               <h3>Rejoice Sammuel</h3>
               <small>
-                <MdLocationPin color="Red" />
+                <MdLocationPin color="#D62246" />
                 Aviele, Edo State.
               </small>{" "}
               <p>
@@ -60,7 +60,7 @@ const Reviews = () => {
               {" "}
               <h3>Aminat Isah</h3>
               <small>
-                <MdLocationPin color="Red" />
+                <MdLocationPin color="#D62246" />
                 Agbede, Edo State.
               </small>
               <p>
@@ -79,7 +79,7 @@ const Reviews = () => {
               {" "}
               <h3>Maimunat Oshoke</h3>
               <small>
-                <MdLocationPin color="Red" />
+                <MdLocationPin color="#D62246" />
                 Auchi, Edo State.
               </small>
               <p>

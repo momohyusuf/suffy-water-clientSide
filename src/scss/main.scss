@@ -662,14 +662,13 @@ option {
 }
 
 footer {
-  height: 280px;
+  height: 315px;
   background-color: #07004d;
 
-  p,
-  address {
+  p {
     color: #bfd7ff;
     font-weight: 300;
-    // line-height: 2;
+    line-height: 1.7;
     font-size: 0.6rem;
   }
 }
@@ -682,5 +681,4 @@ footer {
 .footer--content {
   @include maximum-width;
   padding: 0 1em;
-  line-height: 1.5;
 }

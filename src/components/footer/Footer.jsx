@@ -11,58 +11,69 @@ const Footer = () => {
           <div
             style={{
               padding: "0.7em 0",
+              display: "flex",
             }}
           >
-            <p>
-              Kes Corner Old Auchi Road,
-              <br />
-              Aviele, Estako West LGA,
-              <br /> Edo Sate.
-            </p>
-            <p>
-              <BiPhoneCall
-                style={{
-                  marginRight: "0.3em",
-                }}
-              />
-              Customer care: +2347036538201
-            </p>
+            <MdLocationPin color="#D62246" />
+            <div>
+              {" "}
+              <p>
+                Kes Corner Old Auchi Road,
+                <br />
+                Aviele, Estako West LGA,
+                <br /> Edo Sate.
+              </p>
+              <p>
+                <BiPhoneCall
+                  style={{
+                    marginRight: "0.3em",
+                  }}
+                />
+                Customer care: +2347036538201
+              </p>
+            </div>
           </div>
 
+          {/* ********************** */}
           <div
             style={{
               paddingBottom: "2.5em",
+              display: "flex",
             }}
           >
-            <p>
-              Plot No: Bwari/FO2/1293,
-              <br />
-              Action Layout, Arab Contractor Road,
-              <br /> FCT-Abuja.
-            </p>
-            <p>
-              <BiPhoneCall
+            <MdLocationPin color="#D62246" />
+            <div>
+              <p>
+                Plot No: Bwari/FO2/1293,
+                <br />
+                Action Layout, Arab Contractor Road,
+                <br /> FCT-Abuja.
+              </p>
+              <p>
+                <BiPhoneCall
+                  style={{
+                    marginRight: "0.3em",
+                  }}
+                />
+                Customer care: 08022233392
+              </p>
+              <p
                 style={{
-                  marginRight: "0.3em",
+                  display: "flex",
+                  alignItems: "center",
                 }}
-              />
-              Customer care: 08022233392
-            </p>
-            <p
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <AiOutlineMail
-                style={{
-                  marginRight: "0.3em",
-                }}
-              />
-              Email: omonemusadr@yahoo.co.uk
-            </p>
+              >
+                <AiOutlineMail
+                  style={{
+                    marginRight: "0.3em",
+                  }}
+                />
+                Email: omonemusadr@yahoo.co.uk
+              </p>
+            </div>
           </div>
         </section>
+        {/* +++++++++++++++++ */}
         <div
           style={{
             textAlign: "center",
