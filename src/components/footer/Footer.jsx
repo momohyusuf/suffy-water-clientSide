@@ -14,7 +14,7 @@ const Footer = () => {
             }}
           >
             <p>
-              <MdLocationPin color="Red" /> Kes Corner Old Auchi Road,
+              Kes Corner Old Auchi Road,
               <br />
               Aviele, Estako West LGA,
               <br /> Edo Sate.
@@ -35,7 +35,7 @@ const Footer = () => {
             }}
           >
             <p>
-              <MdLocationPin color="Red" /> Plot No: Bwari/FO2/1293,
+              Plot No: Bwari/FO2/1293,
               <br />
               Action Layout, Arab Contractor Road,
               <br /> FCT-Abuja.
@@ -80,7 +80,8 @@ const Footer = () => {
               fontSize: "0.5rem",
             }}
           >
-            Developed by Starkweb Technologies +23409166454614
+            Developed by Starkweb Technologies +23409166454614, <br />
+            +2347067435729
           </p>
         </div>
       </section>
