@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 
 const CustomBtn = () => {
   return (
-    <div className="custom--btn--container">
-      <button className="custom--btn">
-        <Link to="/place-order">Place Order</Link>
-      </button>
-    </div>
+    <button className="custom--btn">
+      <Link to="/place-order">Place Order</Link>
+    </button>
   );
 };
 
