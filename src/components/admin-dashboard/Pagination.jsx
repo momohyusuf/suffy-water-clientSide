@@ -1,11 +1,11 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   BsFillArrowLeftSquareFill,
   BsFillArrowRightSquareFill,
-} from "react-icons/bs";
-import { updatePage } from "../../features/order/orderSlice";
+} from 'react-icons/bs';
+import { updatePage } from '../../features/order/orderSlice';
 
 const Pagination = () => {
   const { orders, page } = useSelector((state) => state.order);
@@ -31,7 +31,7 @@ const Pagination = () => {
   return (
     <div
       style={{
-        margin: "3rem 0",
+        margin: '3rem 0',
       }}
     >
       <ul>
@@ -45,7 +45,7 @@ const Pagination = () => {
             }}
             key={index}
             className={`${
-              orderPage.toString() === Number(page) ? "selected" : ""
+              Number(orderPage) === Number(page) ? 'selected' : ''
             }`}
           >
             {orderPage}

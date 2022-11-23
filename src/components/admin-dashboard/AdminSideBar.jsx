@@ -1,17 +1,17 @@
-import React from "react";
-import { AiFillClockCircle } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { AiFillClockCircle } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   toggleOrderStatus,
   toggleShowSearchOrderById,
   updateSingleOrder,
-} from "../../features/order/orderSlice";
-import { FiLogOut } from "react-icons/fi";
-import { useLogoutMutation } from "../../services/authApi";
-import { useNavigate } from "react-router-dom";
-import { FaRegUser } from "react-icons/fa";
+} from '../../features/order/orderSlice';
+import { FiLogOut } from 'react-icons/fi';
+import { useLogoutMutation } from '../../services/authApi';
+import { useNavigate } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
 
-const statusFilter = ["pending", "fulfilled", "cancelled"];
+const statusFilter = ['pending', 'fulfilled', 'cancelled'];
 const AdminSideBar = () => {
   const dispatch = useDispatch();
   const { admin } = useSelector((state) => state.admin);
@@ -20,10 +20,10 @@ const AdminSideBar = () => {
   const navigate = useNavigate();
   const logoutAdmin = async () => {
     const response = await logoutMutation();
-    if (response.data.message === "logout successful") {
-      navigate("/");
+    if (response.data.message === 'logout successful') {
+      navigate('/');
     } else {
-      console.log("Error ocurred");
+      console.log('Error ocurred');
     }
   };
   return (
@@ -32,21 +32,21 @@ const AdminSideBar = () => {
         <p
           style={{
             // color: "#F2542D",
-            fontWeight: "600",
-            textTransform: "capitalize",
+            fontWeight: '600',
+            textTransform: 'capitalize',
           }}
         >
-          <FaRegUser /> Hello {admin?.user?.name}
+          <FaUserAlt /> Hello {admin?.user?.name}
         </p>
         <p
           style={{
-            display: "flex",
-            alignItems: "center",
-            margin: "1em 0em",
-            borderBottom: "1px solid grey",
+            display: 'flex',
+            alignItems: 'center',
+            margin: '1em 0em',
+            borderBottom: '1px solid grey',
           }}
         >
-          {" "}
+          {' '}
           <AiFillClockCircle /> {new Date().toLocaleTimeString()}
         </p>
       </div>
@@ -69,13 +69,13 @@ const AdminSideBar = () => {
             dispatch(
               updateSingleOrder({
                 isShow: false,
-                order: "",
+                order: '',
               })
             );
             dispatch(toggleShowSearchOrderById(false));
-            dispatch(toggleOrderStatus(""));
+            dispatch(toggleOrderStatus(''));
           }}
-          id={`${orderStatus === "" && "active"}`}
+          id={`${orderStatus === '' && 'active'}`}
         >
           All orders
         </li>
@@ -92,7 +92,7 @@ const AdminSideBar = () => {
               dispatch(toggleOrderStatus(e.target.innerText));
             }}
             key={index}
-            id={`${item === orderStatus.toLowerCase() ? "active" : ""}`}
+            id={`${item === orderStatus.toLowerCase() ? 'active' : ''}`}
           >
             {item}
           </li>
@@ -100,23 +100,23 @@ const AdminSideBar = () => {
       </ul>
       <p
         style={{
-          display: "flex",
-          alignItems: "center",
-          position: "absolute",
-          bottom: "70px",
-          cursor: "pointer",
+          display: 'flex',
+          alignItems: 'center',
+          position: 'absolute',
+          bottom: '70px',
+          cursor: 'pointer',
         }}
         onClick={logoutAdmin}
         className="logout"
       >
-        {" "}
+        {' '}
         <span
           style={{
-            marginRight: "0.5em",
+            marginRight: '0.5em',
           }}
         >
           Logout
-        </span>{" "}
+        </span>{' '}
         <FiLogOut />
       </p>
     </div>

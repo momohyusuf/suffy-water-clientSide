@@ -1,34 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import CollectInputsValue from "../../components/inputs/CollectInputsValue";
-import Modal from "../../components/Modal";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  toggleModal,
-  toggleIsLoading,
-  toggleAlert,
-} from "../../features/order/orderSlice";
-import PreloaderSmall from "../../components/PreloaderSmall";
-import Alert from "../../components/Alert";
-import { useCreateOrderMutation } from "../../services/ordersApi";
-import Navbar from "../../components/navbar/Navbar";
-import HomePageSidebar from "../../components/HomePageSidebar";
-import { updateIsPending } from "../../features/admin/adminSlice";
+import CollectInputsValue from '../../components/inputs/CollectInputsValue';
+import Modal from '../../components/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleModal, toggleAlert } from '../../features/order/orderSlice';
+import PreloaderSmall from '../../components/PreloaderSmall';
+import Alert from '../../components/Alert';
+import { useCreateOrderMutation } from '../../services/ordersApi';
+import Navbar from '../../components/navbar/Navbar';
+import HomePageSidebar from '../../components/HomePageSidebar';
+import { updateIsPending } from '../../features/admin/adminSlice';
 
 const PlaceOrder = () => {
   const [orderInformation, setOrderInformation] = useState({
-    numOfPacks: "",
-    numOfBags: "",
-    name: "",
-    deliveryAddress: "",
-    phoneNumber: "",
-    location: "",
+    numOfPacks: '',
+    numOfBags: '',
+    name: '',
+    deliveryAddress: '',
+    phoneNumber: '',
+    location: '',
   });
 
   const [totalAmount, setTotalAmount] = useState(0);
-  const { modal, isLoading, alert, isSidebarOpen } = useSelector(
-    (state) => state.order
-  );
+  const { modal, alert, isSidebarOpen } = useSelector((state) => state.order);
   const { isPending } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
   // ++++++++
@@ -67,7 +61,7 @@ const PlaceOrder = () => {
       dispatch(
         toggleAlert({
           showAlert: true,
-          message: "Please provide the required values",
+          message: 'Please provide the required values',
         })
       );
       return;
@@ -88,12 +82,12 @@ const PlaceOrder = () => {
         })
       );
       setOrderInformation({
-        numOfBags: "",
-        numOfPacks: "",
-        phoneNumber: "",
-        location: "",
-        deliveryAddress: "",
-        name: "",
+        numOfBags: '',
+        numOfPacks: '',
+        phoneNumber: '',
+        location: '',
+        deliveryAddress: '',
+        name: '',
       });
       dispatch(updateIsPending(false));
       return;
@@ -107,12 +101,12 @@ const PlaceOrder = () => {
           message: response.error.data.message,
         })
       );
-    } else if (response.error.status === "FETCH_ERROR" || response.error.data) {
+    } else if (response.error.status === 'FETCH_ERROR' || response.error.data) {
       dispatch(updateIsPending(false));
       dispatch(
         toggleAlert({
           showAlert: true,
-          message: "Network Error try again later",
+          message: 'Network Error try again later',
         })
       );
     }
@@ -129,17 +123,23 @@ const PlaceOrder = () => {
           onSubmit={(e) => {
             e.preventDefault();
           }}
+          className="place--order--form--container"
         >
           {/* ======================================== */}
-          <p>Number of bags (50cl sachet)</p>
+          <div className="item--order">
+            <img src={require('../../assets/images/bags.jpg')} alt="bags" />{' '}
+            <p>
+              Number of bags <br /> 50cl sachet
+            </p>
+          </div>
           <section className="quantity--container">
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
-              {" "}
+              {' '}
               <input
                 name="numOfBags"
                 type="number"
@@ -150,7 +150,7 @@ const PlaceOrder = () => {
               <p>X 200</p>
             </div>
             <p>
-              {" "}
+              {' '}
               &#8358;
               {formatter.format(
                 Number(orderInformation.numOfBags) * Number(200)
@@ -161,10 +161,16 @@ const PlaceOrder = () => {
           {/* +++++++++++++++++++++++++++++++++++++++++++ */}
           {/* +++++++++++++++++++++++++++++++++++++++++++ */}
           {/* ======================================== */}
-          <p>Number of packs (75cl bottle)</p>
+          <div className="item--order">
+            <img src={require('../../assets/images/packs.jpg')} alt="packs" />
+            <p>
+              Number of packs <br /> 75cl bottle
+            </p>
+          </div>
+
           <section className="quantity--container">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              {" "}
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              {' '}
               <input
                 name="numOfPacks"
                 type="number"
@@ -175,7 +181,7 @@ const PlaceOrder = () => {
               <p>X 800</p>
             </div>
             <p>
-              {" "}
+              {' '}
               &#8358;
               {formatter.format(
                 Number(orderInformation.numOfPacks) * Number(800)
@@ -185,9 +191,9 @@ const PlaceOrder = () => {
           {/* ============================================== */}
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "0.7em 0",
+              display: 'flex',
+              justifyContent: 'space-between',
+              margin: '0.7em 0',
             }}
           >
             <b> Total: </b>
@@ -200,7 +206,7 @@ const PlaceOrder = () => {
             Name
             <sup
               style={{
-                color: "red",
+                color: 'red',
               }}
             >
               *
@@ -217,7 +223,7 @@ const PlaceOrder = () => {
             Location
             <sup
               style={{
-                color: "red",
+                color: 'red',
               }}
             >
               *
@@ -236,7 +242,7 @@ const PlaceOrder = () => {
             Delivery Address
             <sup
               style={{
-                color: "red",
+                color: 'red',
               }}
             >
               *
@@ -253,7 +259,7 @@ const PlaceOrder = () => {
             Phone Number
             <sup
               style={{
-                color: "red",
+                color: 'red',
               }}
             >
               *
@@ -268,8 +274,8 @@ const PlaceOrder = () => {
           <button onClick={handleSubmit} disabled={isPending}>
             {!isPending ? <span>Confirm Order</span> : <PreloaderSmall />}
           </button>
-          <p style={{ textAlign: "center" }}>
-            {" "}
+          <p style={{ textAlign: 'center' }}>
+            {' '}
             We currently only support payment on delivery.
           </p>
         </form>

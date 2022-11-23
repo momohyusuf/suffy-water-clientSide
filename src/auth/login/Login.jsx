@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import PreloaderSmall from "../../components/PreloaderSmall";
-import { toggleAlert } from "../../features/order/orderSlice";
-import Alert from "../../components/Alert";
-import { useLoginAdminMutation } from "../../services/authApi";
-import { updateAdmin, updateIsPending } from "../../features/admin/adminSlice";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
-import HomePageSidebar from "../../components/HomePageSidebar";
+import React, { useState } from 'react';
+import { FaUserAlt } from 'react-icons/fa';
+import { BsKeyFill } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
+import PreloaderSmall from '../../components/PreloaderSmall';
+import { toggleAlert } from '../../features/order/orderSlice';
+import Alert from '../../components/Alert';
+import { useLoginAdminMutation } from '../../services/authApi';
+import { updateAdmin, updateIsPending } from '../../features/admin/adminSlice';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/navbar/Navbar';
+import HomePageSidebar from '../../components/HomePageSidebar';
 
 const Login = () => {
   const [loginInformation, setLoginInformation] = useState({
-    userName: "",
-    password: "",
+    userName: '',
+    password: '',
   });
   const [loginAdminMutation] = useLoginAdminMutation();
-  const { isLoading, alert, isSidebarOpen } = useSelector(
-    (state) => state.order
-  );
+  const { alert, isSidebarOpen } = useSelector((state) => state.order);
   const { isPending } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Login = () => {
       dispatch(
         toggleAlert({
           showAlert: true,
-          message: "Please provide your login details",
+          message: 'Please provide your login details',
         })
       );
       return;
@@ -40,7 +40,7 @@ const Login = () => {
     if (response.data) {
       dispatch(updateAdmin(response.data));
       dispatch(updateIsPending(false));
-      navigate("/admin");
+      navigate('/admin');
     }
 
     if (response.error.data.message) {
@@ -51,12 +51,12 @@ const Login = () => {
         })
       );
       dispatch(updateIsPending(false));
-    } else if (response.error.status === "FETCH_ERROR" || response.error.data) {
+    } else if (response.error.status === 'FETCH_ERROR' || response.error.data) {
       dispatch(updateIsPending(false));
       dispatch(
         toggleAlert({
           showAlert: true,
-          message: "Network Error try again later",
+          message: 'Network Error try again later',
         })
       );
     }
@@ -81,25 +81,33 @@ const Login = () => {
       <section
         className="form--container"
         style={{
-          marginBottom: "3em",
-          height: "calc(100vh - 300px)",
+          marginBottom: '3em',
+          height: 'calc(100vh - 300px)',
         }}
       >
-        <form onSubmit={handleSubmit}>
-          <p>Username</p>
-          <input
-            onChange={handleInputs}
-            value={loginInformation.userName}
-            name="userName"
-            type="text"
-          />
-          <p>Password</p>
-          <input
-            name="password"
-            value={loginInformation.password}
-            onChange={handleInputs}
-            type="password"
-          />
+        <form onSubmit={handleSubmit} className="login--container">
+          <div className="login--input--container">
+            {' '}
+            <FaUserAlt color="#0f95f6" className="login-icons" />
+            <input
+              onChange={handleInputs}
+              value={loginInformation.userName}
+              name="userName"
+              type="text"
+              placeholder="Username"
+            />
+          </div>
+
+          <div className="login--input--container">
+            <BsKeyFill color="#0f95f6" className="login-icons" />
+            <input
+              name="password"
+              value={loginInformation.password}
+              onChange={handleInputs}
+              type="password"
+              placeholder="Password"
+            />
+          </div>
           <button disabled={isPending}>
             {!isPending ? <span>Log In</span> : <PreloaderSmall />}
           </button>
