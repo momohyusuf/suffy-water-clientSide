@@ -3,7 +3,6 @@ import React from 'react';
 import { HiOutlineBars3 } from 'react-icons/hi2';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../features/order/orderSlice';
-import logo from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {

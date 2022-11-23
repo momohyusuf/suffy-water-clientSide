@@ -1,7 +1,7 @@
-import React from "react";
-import { MdLocationPin } from "react-icons/md";
-import { BiPhoneCall } from "react-icons/bi";
-import { AiOutlineMail } from "react-icons/ai";
+import React from 'react';
+import { MdLocationPin } from 'react-icons/md';
+import { BiPhoneCall } from 'react-icons/bi';
+import { AiOutlineMail } from 'react-icons/ai';
 
 const Footer = () => {
   return (
@@ -10,13 +10,31 @@ const Footer = () => {
         <section>
           <div
             style={{
-              padding: "0.7em 0",
-              display: "flex",
+              padding: '0.2em 0',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <img
+              src={require('../../assets/images/nafdac-logo.jpeg')}
+              width="30px"
+              alt="nafadac logo"
+              style={{
+                marginRight: '0.6em',
+                borderRadius: '50%',
+              }}
+            />
+            <p>NAFDAC REG - 123456</p>
+          </div>
+          <div
+            style={{
+              padding: '0.7em 0',
+              display: 'flex',
             }}
           >
             <MdLocationPin color="#D62246" />
             <div>
-              {" "}
+              {' '}
               <p>
                 Kes Corner Old Auchi Road,
                 <br />
@@ -26,7 +44,7 @@ const Footer = () => {
               <p>
                 <BiPhoneCall
                   style={{
-                    marginRight: "0.3em",
+                    marginRight: '0.3em',
                   }}
                 />
                 Customer care: +2347036538201
@@ -37,8 +55,8 @@ const Footer = () => {
           {/* ********************** */}
           <div
             style={{
-              paddingBottom: "2.5em",
-              display: "flex",
+              paddingBottom: '2.5em',
+              display: 'flex',
             }}
           >
             <MdLocationPin color="#D62246" />
@@ -52,20 +70,20 @@ const Footer = () => {
               <p>
                 <BiPhoneCall
                   style={{
-                    marginRight: "0.3em",
+                    marginRight: '0.3em',
                   }}
                 />
                 Customer care: 08022233392
               </p>
               <p
                 style={{
-                  display: "flex",
-                  alignItems: "center",
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
               >
                 <AiOutlineMail
                   style={{
-                    marginRight: "0.3em",
+                    marginRight: '0.3em',
                   }}
                 />
                 Email: omonemusadr@yahoo.co.uk
@@ -76,10 +94,10 @@ const Footer = () => {
         {/* +++++++++++++++++ */}
         <div
           style={{
-            textAlign: "center",
-            fontWeight: "300",
-            borderTop: "1px solid rgb(52, 52, 52)",
-            fontSize: "0.5rem",
+            textAlign: 'center',
+            fontWeight: '300',
+            borderTop: '1px solid rgb(52, 52, 52)',
+            fontSize: '0.5rem',
           }}
         >
           <p>
@@ -88,7 +106,7 @@ const Footer = () => {
           </p>
           <p
             style={{
-              fontSize: "0.5rem",
+              fontSize: '0.5rem',
             }}
           >
             Developed by Starkweb Technologies +23409166454614, <br />
