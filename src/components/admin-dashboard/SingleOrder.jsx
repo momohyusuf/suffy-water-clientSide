@@ -1,20 +1,17 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   updateSingleOrder,
   toggleOrderStatus,
-} from "../../features/order/orderSlice";
+} from '../../features/order/orderSlice';
 import {
   useUpdateOrderStatusMutation,
   useGetSingleOrderMutation,
-} from "../../services/ordersApi";
+} from '../../services/ordersApi';
 
 const SingleOrder = () => {
   const dispatch = useDispatch();
-
-  const { singleOrder, orderStatus, orderId } = useSelector(
-    (state) => state.order
-  );
+  const { singleOrder, orderStatus } = useSelector((state) => state.order);
   const formatter = new Intl.NumberFormat();
   const [updateOrderStatusMutation] = useUpdateOrderStatusMutation();
   const [getSingleOrderMutation] = useGetSingleOrderMutation();
@@ -22,7 +19,6 @@ const SingleOrder = () => {
   const updateOrderStatus = async (id, param) => {
     dispatch(toggleOrderStatus(param));
     const result = await updateOrderStatusMutation({ id, orderStatus: param });
-    console.log(result);
   };
   // ++++++++++++++++++++++++++++
   const getSingleOrder = async () => {
@@ -35,7 +31,7 @@ const SingleOrder = () => {
         })
       );
     } else {
-      console.log("error occured");
+      console.log('error occured');
     }
   };
 
@@ -53,7 +49,7 @@ const SingleOrder = () => {
               order: null,
             })
           );
-          dispatch(toggleOrderStatus(""));
+          dispatch(toggleOrderStatus(''));
         }}
         className="back--btn"
       >
@@ -66,7 +62,7 @@ const SingleOrder = () => {
           <strong>Order ID</strong>: {singleOrder?.order._id}
         </p>
         <p>
-          <strong>Date</strong>:{" "}
+          <strong>Date</strong>:{' '}
           {new Date(singleOrder?.order?.createdAt).toLocaleDateString()}
         </p>
         <p>
@@ -92,15 +88,15 @@ const SingleOrder = () => {
           {formatter.format(Number(singleOrder.order.totalAmount))}
         </p>
         <p>
-          <strong>Status</strong>:{" "}
+          <strong>Status</strong>:{' '}
           <span
             style={{
               color: `${
-                singleOrder.order.status === "pending"
-                  ? "orange"
-                  : singleOrder.order.status === "fulfilled"
-                  ? "#62C370"
-                  : singleOrder.order.status === "cancelled" && "red"
+                singleOrder.order.status === 'pending'
+                  ? 'orange'
+                  : singleOrder.order.status === 'fulfilled'
+                  ? '#62C370'
+                  : singleOrder.order.status === 'cancelled' && 'red'
               }`,
             }}
           >

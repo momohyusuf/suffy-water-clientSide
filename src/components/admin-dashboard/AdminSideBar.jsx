@@ -36,7 +36,7 @@ const AdminSideBar = () => {
             textTransform: 'capitalize',
           }}
         >
-          <FaUserAlt /> Hello {admin?.user?.name}
+          <FaUserAlt /> {admin?.user?.name}
         </p>
         <p
           style={{

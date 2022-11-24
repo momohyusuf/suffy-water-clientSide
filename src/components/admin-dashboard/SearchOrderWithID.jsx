@@ -1,13 +1,13 @@
-import React, { useRef, useEffect } from "react";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { FaSearch } from "react-icons/fa";
-import { useGetSingleOrderMutation } from "../../services/ordersApi";
-import PreloaderLarge from "../PreloaderLarge";
+import React, { useRef, useEffect } from 'react';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { FaSearch } from 'react-icons/fa';
+import { useGetSingleOrderMutation } from '../../services/ordersApi';
+import PreloaderLarge from '../PreloaderLarge';
 import {
   toggleIsLoading,
   updateOrderId,
-} from "../../features/order/orderSlice";
+} from '../../features/order/orderSlice';
 
 const SearchOrderWithID = () => {
   const { orderId, isLoading } = useSelector((state) => state.order);
@@ -38,9 +38,9 @@ const SearchOrderWithID = () => {
     <div>
       <section
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
         className="admin--page--content--header"
       >
@@ -61,7 +61,7 @@ const SearchOrderWithID = () => {
       ) : (
         <section
           style={{
-            marginTop: "4em",
+            marginTop: '4em',
           }}
           className="order--information"
         >
@@ -70,7 +70,7 @@ const SearchOrderWithID = () => {
             <strong>Order ID</strong>: {singleOrder?.order?._id}
           </p>
           <p>
-            <strong>Date</strong>:{" "}
+            <strong>Date</strong>:{' '}
             {new Date(singleOrder?.order?.createdAt).toLocaleDateString()}
           </p>
           <p>
@@ -80,18 +80,18 @@ const SearchOrderWithID = () => {
             <strong>Location</strong>: {singleOrder?.order?.location}
           </p>
           <p>
-            <strong>Delivery Address</strong>:{" "}
+            <strong>Delivery Address</strong>:{' '}
             {singleOrder?.order?.deliveryAddress}
           </p>
           <p>
             <strong>Phone Number</strong>: {singleOrder?.order?.phoneNumber}
           </p>
           <p>
-            <strong>Number of Bags</strong>:{" "}
+            <strong>Number of Bags</strong>:{' '}
             {singleOrder?.order?.numOfBags || 0}
           </p>
           <p>
-            <strong>Number of Packs</strong>:{" "}
+            <strong>Number of Packs</strong>:{' '}
             {singleOrder?.order?.numOfPacks || 0}
           </p>
           <p>
@@ -99,15 +99,15 @@ const SearchOrderWithID = () => {
             {formatter.format(Number(singleOrder?.order?.totalAmount))}
           </p>
           <p>
-            <strong>Status</strong>:{" "}
+            <strong>Status</strong>:{' '}
             <span
               style={{
                 color: `${
-                  singleOrder?.order?.status === "pending"
-                    ? "orange"
-                    : singleOrder?.order?.status === "fulfilled"
-                    ? "#62C370"
-                    : singleOrder?.order?.status === "cancelled" && "red"
+                  singleOrder?.order?.status === 'pending'
+                    ? 'orange'
+                    : singleOrder?.order?.status === 'fulfilled'
+                    ? '#62C370'
+                    : singleOrder?.order?.status === 'cancelled' && 'red'
                 }`,
               }}
             >

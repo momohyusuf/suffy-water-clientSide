@@ -1,25 +1,27 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   useGetAllOrdersMutation,
   useGetSingleOrderMutation,
-} from "../../services/ordersApi";
+} from '../../services/ordersApi';
 import {
   updateSingleOrder,
   updateOrders,
-  updateOrderId,
-} from "../../features/order/orderSlice";
-import SingleOrder from "./SingleOrder";
-import PreloaderLarge from "../PreloaderLarge";
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en";
-import Pagination from "./Pagination";
-import SearchOrderWithID from "./SearchOrderWithID";
+  toggleAlert,
+} from '../../features/order/orderSlice';
+import SingleOrder from './SingleOrder';
+import PreloaderLarge from '../PreloaderLarge';
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en';
+import Pagination from './Pagination';
+import SearchOrderWithID from './SearchOrderWithID';
+import FetchingSingleOrderInformationAlert from '../FetchingSingleOrderInformationAlert';
 
 TimeAgo.addDefaultLocale(en);
 const AdminPageContent = () => {
   const { admin } = useSelector((state) => state.admin);
+  const { alert } = useSelector((state) => state.order);
   const { singleOrder, orderStatus, orders, page, showSearchOrderById } =
     useSelector((state) => state.order);
   const [loadingOrders, setLoadingOrders] = useState(false);
@@ -27,7 +29,7 @@ const AdminPageContent = () => {
   const [getSingleOrderMutation] = useGetSingleOrderMutation();
   const dispatch = useDispatch();
 
-  const timeAgo = new TimeAgo("en-US");
+  const timeAgo = new TimeAgo('en-US');
 
   // ++++++++++++++++++++++++++++
   const getAllOrders = async () => {
@@ -47,6 +49,12 @@ const AdminPageContent = () => {
   // +===========================
 
   const getSingleOrder = async (id) => {
+    dispatch(
+      toggleAlert({
+        showAlert: true,
+        message: 'Fetching order information...',
+      })
+    );
     const result = await getSingleOrderMutation(id);
     if (result.data) {
       dispatch(
@@ -56,13 +64,14 @@ const AdminPageContent = () => {
         })
       );
     } else {
-      console.log("error occured");
+      console.log('error occurred');
     }
   };
 
   return (
     <div className="admin--page--content">
-      <h2 style={{ textAlign: "center" }}>{admin?.user?.location}</h2>
+      <h2 style={{ textAlign: 'center' }}>{admin?.user?.location}</h2>
+      {alert.showAlert && <FetchingSingleOrderInformationAlert />}
 
       {loadingOrders ? (
         <PreloaderLarge />
@@ -73,8 +82,8 @@ const AdminPageContent = () => {
           {orders?.orders?.length === 0 ? (
             <div
               style={{
-                textAlign: "center",
-                marginTop: "10rem",
+                textAlign: 'center',
+                marginTop: '10rem',
               }}
             >
               <h3>Sorry No {orderStatus} orders</h3>
@@ -102,11 +111,11 @@ const AdminPageContent = () => {
                     <td
                       style={{
                         color: `${
-                          item.status === "pending"
-                            ? "orange"
-                            : item.status === "fulfilled"
-                            ? "#62C370"
-                            : item.status === "cancelled" && "red"
+                          item.status === 'pending'
+                            ? 'orange'
+                            : item.status === 'fulfilled'
+                            ? '#62C370'
+                            : item.status === 'cancelled' && 'red'
                         }`,
                       }}
                     >
