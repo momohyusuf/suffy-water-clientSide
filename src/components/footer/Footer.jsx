@@ -24,7 +24,7 @@ const Footer = () => {
                 borderRadius: '50%',
               }}
             />
-            <p>NAFDAC REG - 123456</p>
+            <p>NAFDAC REG: C1 - 9914L</p>
           </div>
           <div
             style={{

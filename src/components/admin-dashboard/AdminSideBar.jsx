@@ -19,9 +19,10 @@ const AdminSideBar = () => {
   const [logoutMutation] = useLogoutMutation();
   const navigate = useNavigate();
   const logoutAdmin = async () => {
+    navigate('/');
     const response = await logoutMutation();
     if (response.data.message === 'logout successful') {
-      navigate('/');
+      console.log('logout successful');
     } else {
       console.log('Error ocurred');
     }
