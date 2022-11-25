@@ -4,6 +4,7 @@ import { HiOutlineBars3 } from 'react-icons/hi2';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../features/order/orderSlice';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/suffy-logo.png';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -12,11 +13,11 @@ const Navbar = () => {
       <div className="nav--items">
         <div className="logo">
           <Link to="/">
-            {/* <img src={logo} alt="logo" width="70px" /> */}
-            <div>
+            <img src={logo} alt="logo" width="60px" />
+            {/* <div>
               <h1>Suffy's</h1>
               <p>Water</p>
-            </div>
+            </div> */}
           </Link>
         </div>
         <div>

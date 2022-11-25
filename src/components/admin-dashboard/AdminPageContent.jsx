@@ -94,7 +94,7 @@ const AdminPageContent = () => {
                 <tr>
                   <th>S/N</th>
                   <th>Name</th>
-                  <th>DeliveryAddress</th>
+                  <th>Delivery address</th>
                   <th>Location</th>
                   <th>Status</th>
                   <th>Time</th>

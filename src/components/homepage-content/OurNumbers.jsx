@@ -8,6 +8,7 @@ const OurNumbers = () => {
   useCountUp({
     ref: 'counter',
     end: 10000,
+    separator: ',',
     enableScrollSpy: true,
   });
 
