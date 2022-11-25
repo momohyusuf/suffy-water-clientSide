@@ -5,13 +5,21 @@ import {
   toggleOrderStatus,
   toggleShowSearchOrderById,
   updateSingleOrder,
+  toggleAlert,
 } from '../../features/order/orderSlice';
 import { FiLogOut } from 'react-icons/fi';
 import { useLogoutMutation } from '../../services/authApi';
 import { useNavigate } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
+import { BsSearch, BsFillFilterSquareFill } from 'react-icons/bs';
+import {
+  MdOutlinePendingActions,
+  MdOutlineCancelPresentation,
+} from 'react-icons/md';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 
-const statusFilter = ['pending', 'fulfilled', 'cancelled'];
+// const statusFilter = ['pending', 'fulfilled', 'cancelled'];
+
 const AdminSideBar = () => {
   const dispatch = useDispatch();
   const { admin } = useSelector((state) => state.admin);
@@ -19,14 +27,38 @@ const AdminSideBar = () => {
   const [logoutMutation] = useLogoutMutation();
   const navigate = useNavigate();
   const logoutAdmin = async () => {
-    navigate('/');
+    dispatch(
+      toggleAlert({
+        showAlert: true,
+        message: 'Logging out...',
+      })
+    );
     const response = await logoutMutation();
     if (response.data.message === 'logout successful') {
-      console.log('logout successful');
+      dispatch(toggleOrderStatus('pending'));
+      navigate('/');
     } else {
       console.log('Error ocurred');
     }
   };
+  const style = {
+    marginRight: '0.7em',
+    fontSize: '1.2rem',
+  };
+  const statusFilter = [
+    {
+      title: 'pending',
+      icon: <MdOutlinePendingActions style={style} />,
+    },
+    {
+      title: 'fulfilled',
+      icon: <IoMdCheckmarkCircleOutline style={style} />,
+    },
+    {
+      title: 'cancelled',
+      icon: <MdOutlineCancelPresentation style={style} />,
+    },
+  ];
   return (
     <div className="admin--sidebar">
       <div className="admin--sidebar--header">
@@ -44,6 +76,7 @@ const AdminSideBar = () => {
             display: 'flex',
             alignItems: 'center',
             margin: '1em 0em',
+            paddingBottom: '1em',
             borderBottom: '1px solid grey',
           }}
         >
@@ -58,7 +91,7 @@ const AdminSideBar = () => {
             dispatch(toggleShowSearchOrderById(true));
           }}
         >
-          Search by Order ID
+          <BsSearch style={style} /> Search by Order ID
         </li>
       </ul>
       {/* ++++++++++++++++ */}
@@ -78,24 +111,27 @@ const AdminSideBar = () => {
           }}
           id={`${orderStatus === '' && 'active'}`}
         >
-          All orders
+          <BsFillFilterSquareFill style={style} /> All orders
         </li>
         {statusFilter.map((item, index) => (
-          <li
-            onClick={(e) => {
-              dispatch(
-                updateSingleOrder({
-                  isShow: false,
-                  order: null,
-                })
-              );
-              dispatch(toggleShowSearchOrderById(false));
-              dispatch(toggleOrderStatus(e.target.innerText));
-            }}
-            key={index}
-            id={`${item === orderStatus.toLowerCase() ? 'active' : ''}`}
-          >
-            {item}
+          <li key={index}>
+            {item.icon}
+            <span
+              onClick={(e) => {
+                dispatch(
+                  updateSingleOrder({
+                    isShow: false,
+                    order: null,
+                  })
+                );
+                dispatch(toggleShowSearchOrderById(false));
+                dispatch(toggleOrderStatus(e.target.innerText));
+              }}
+              id={`${item.title === orderStatus.toLowerCase() ? 'active' : ''}`}
+            >
+              {' '}
+              {item.title}
+            </span>
           </li>
         ))}
       </ul>

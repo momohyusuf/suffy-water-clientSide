@@ -1,23 +1,31 @@
-import CountUp from 'react-countup';
+import CountUp, { useCountUp } from 'react-countup';
 import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
 
 import { FaHandshake, FaTruck } from 'react-icons/fa';
 
 const OurNumbers = () => {
+  useCountUp({
+    ref: 'counter',
+    end: 10000,
+    enableScrollSpy: true,
+  });
+
   return (
     <section className="our--numbers--container">
       {/* countUp code */}
       <div className="numbers">
         {/* <div className="content" /> */}
-        <CountUp
+        {/* <CountUp
           className="figure"
           enableScrollSpy
+          start={0}
           end={10000}
           separator=","
           duration={5}
           useEasing
-        />{' '}
+        />{' '} */}
+        <span id="counter" className="figure" />
         <span className="figure">+</span> <br />
         <FaHandshake className="numbers--icon--delivery" />
         <p>Customers.</p>
@@ -38,6 +46,7 @@ const OurNumbers = () => {
         <CountUp
           className="figure"
           enableScrollSpy
+          start={0}
           end={50000}
           separator=","
           duration={10}
