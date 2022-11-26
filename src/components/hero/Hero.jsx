@@ -1,6 +1,6 @@
-import React from "react";
-import drinkWater from "../../assets/images/drinking-water.png";
-import CustomBtn from "../CustomBtn";
+import React from 'react';
+import drinkWater from '../../assets/images/drinking-water.png';
+import CustomBtn from '../CustomBtn';
 
 const Hero = () => {
   return (
