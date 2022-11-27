@@ -194,6 +194,7 @@ button:disabled {
   @include zoomIn;
   height: 100vh;
   position: fixed;
+  z-index: 10000;
   top: 0;
   width: 100%;
   background-color: rgba(50, 50, 93, 0.25);
@@ -670,14 +671,15 @@ option {
       url('../assets/images/osmosis.jpg');
     @include imageBg;
   }
-  .image--employees {
-    @include imageBg;
+  .image--environment {
     background: linear-gradient(
-        to bottom,
-        rgba(5, 204, 85, 0.88),
-        rgba(255, 255, 255, 0.2)
+        to top,
+        rgba(15, 150, 246, 0.5),
+        rgba(0, 0, 0, 0.2)
       ),
-      url('../assets/images/producing.jpg');
+      url('../assets/images/clean-environment.jpg');
+
+    @include imageBg;
   }
   p {
     font-size: 2.5rem;
@@ -686,13 +688,14 @@ option {
     backdrop-filter: blur(4px);
   }
   @media screen and (min-width: 900px) {
-    .image--facilities {
+    .image--facilities,
+    .image--environment {
       margin-top: 8rem;
     }
     .image--delivery,
-    .image--employees,
+    .image--environment,
     .image--facilities {
-      height: 450px;
+      height: 400px;
     }
     p {
       font-size: 3.5rem;
