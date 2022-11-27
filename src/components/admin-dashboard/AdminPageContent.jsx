@@ -143,7 +143,7 @@ const AdminPageContent = () => {
           )}
         </>
       ) : (
-        <SingleOrder />
+        <SingleOrder getAllOrders={getAllOrders} />
       )}
       {orders?.totalOrders <= 20 || (!singleOrder.isShown && <Pagination />)}
     </div>

@@ -12,7 +12,7 @@ import {
 } from '../../services/ordersApi';
 import UpdatedStatus from './UpdatedStatus';
 
-const SingleOrder = () => {
+const SingleOrder = ({ getAllOrders }) => {
   const dispatch = useDispatch();
   const { singleOrder, orderStatus } = useSelector((state) => state.order);
   const formatter = new Intl.NumberFormat();
@@ -71,7 +71,7 @@ const SingleOrder = () => {
               order: null,
             })
           );
-          dispatch(toggleOrderStatus(''));
+          getAllOrders();
         }}
         className="back--btn"
       >
