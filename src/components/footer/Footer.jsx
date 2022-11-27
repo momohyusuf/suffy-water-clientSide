@@ -2,6 +2,7 @@ import React from 'react';
 import { MdLocationPin } from 'react-icons/md';
 import { BiPhoneCall } from 'react-icons/bi';
 import { AiOutlineMail } from 'react-icons/ai';
+import { GoClock } from 'react-icons/go';
 
 const Footer = () => {
   return (
@@ -26,6 +27,25 @@ const Footer = () => {
             />
             <p>NAFDAC REG: C1 - 9914L</p>
           </div>
+          {/* *************************** */}
+          <div
+            style={{
+              padding: '0.7em 0',
+              display: 'flex',
+            }}
+          >
+            <GoClock
+              color="white"
+              style={{
+                marginRight: '0.2em',
+              }}
+            />
+            <div>
+              <p> Open: Monday - Saturday</p>
+              <p>Time: 08:00am - 05:00pm</p>
+            </div>
+          </div>
+          {/* **************************** */}
           <div
             style={{
               padding: '0.7em 0',

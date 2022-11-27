@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   updateSingleOrder,
   toggleOrderStatus,
+  toggleOrderAlert,
 } from '../../features/order/orderSlice';
 import {
   useUpdateOrderStatusMutation,
   useGetSingleOrderMutation,
 } from '../../services/ordersApi';
+import UpdatedStatus from './UpdatedStatus';
 
 const SingleOrder = () => {
   const dispatch = useDispatch();
@@ -15,11 +18,30 @@ const SingleOrder = () => {
   const formatter = new Intl.NumberFormat();
   const [updateOrderStatusMutation] = useUpdateOrderStatusMutation();
   const [getSingleOrderMutation] = useGetSingleOrderMutation();
+  const [status, setStatus] = useState('');
   // +++++++++++++++++++
   const updateOrderStatus = async (id, param) => {
-    dispatch(toggleOrderStatus(param));
-    const result = await updateOrderStatusMutation({ id, orderStatus: param });
+    dispatch(
+      toggleOrderAlert({
+        alert: true,
+        message: 'Updating order status',
+      })
+    );
+    const { data } = await updateOrderStatusMutation({
+      id,
+      orderStatus: param,
+    });
+    if (data?.status) {
+      dispatch(
+        toggleOrderAlert({
+          alert: false,
+          message: '',
+        })
+      );
+      setStatus(data.status);
+    }
   };
+  console.log(status);
   // ++++++++++++++++++++++++++++
   const getSingleOrder = async () => {
     const result = await getSingleOrderMutation(singleOrder.order._id);
@@ -89,18 +111,20 @@ const SingleOrder = () => {
         </p>
         <p>
           <strong>Status</strong>:{' '}
-          <span
-            style={{
-              color: `${
-                singleOrder.order.status === 'pending'
+          <span>
+            {/* {singleOrder.order.status} */}
+            <UpdatedStatus
+              color={`${
+                (status || singleOrder.order.status) === 'pending'
                   ? 'orange'
-                  : singleOrder.order.status === 'fulfilled'
+                  : (status || singleOrder.order.status) === 'fulfilled'
                   ? '#62C370'
-                  : singleOrder.order.status === 'cancelled' && 'red'
-              }`,
-            }}
-          >
-            {singleOrder.order.status}
+                  : (status || singleOrder.order.status) === 'cancelled'
+                  ? 'red'
+                  : 'black'
+              }`}
+              status={status || singleOrder.order.status}
+            />
           </span>
         </p>
 

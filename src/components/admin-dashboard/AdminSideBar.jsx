@@ -5,7 +5,8 @@ import {
   toggleOrderStatus,
   toggleShowSearchOrderById,
   updateSingleOrder,
-  toggleAlert,
+  updatePage,
+  toggleOrderAlert,
 } from '../../features/order/orderSlice';
 import { FiLogOut } from 'react-icons/fi';
 import { useLogoutMutation } from '../../services/authApi';
@@ -28,14 +29,20 @@ const AdminSideBar = () => {
   const navigate = useNavigate();
   const logoutAdmin = async () => {
     dispatch(
-      toggleAlert({
-        showAlert: true,
+      toggleOrderAlert({
+        alert: true,
         message: 'Logging out...',
       })
     );
     const response = await logoutMutation();
     if (response.data.message === 'logout successful') {
       dispatch(toggleOrderStatus('pending'));
+      dispatch(
+        toggleOrderAlert({
+          alert: false,
+          message: 'Logging out...',
+        })
+      );
       navigate('/');
     } else {
       console.log('Error ocurred');
@@ -118,6 +125,7 @@ const AdminSideBar = () => {
             {item.icon}
             <span
               onClick={(e) => {
+                dispatch(updatePage(1));
                 dispatch(
                   updateSingleOrder({
                     isShow: false,

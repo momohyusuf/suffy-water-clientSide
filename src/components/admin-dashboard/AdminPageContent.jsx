@@ -9,6 +9,7 @@ import {
   updateSingleOrder,
   updateOrders,
   toggleAlert,
+  toggleOrderAlert,
 } from '../../features/order/orderSlice';
 import SingleOrder from './SingleOrder';
 import PreloaderLarge from '../PreloaderLarge';
@@ -21,7 +22,7 @@ import FetchingSingleOrderInformationAlert from '../FetchingSingleOrderInformati
 TimeAgo.addDefaultLocale(en);
 const AdminPageContent = () => {
   const { admin } = useSelector((state) => state.admin);
-  const { alert } = useSelector((state) => state.order);
+  const { orderAlert } = useSelector((state) => state.order);
   const { singleOrder, orderStatus, orders, page, showSearchOrderById } =
     useSelector((state) => state.order);
   const [loadingOrders, setLoadingOrders] = useState(false);
@@ -50,8 +51,8 @@ const AdminPageContent = () => {
 
   const getSingleOrder = async (id) => {
     dispatch(
-      toggleAlert({
-        showAlert: true,
+      toggleOrderAlert({
+        alert: true,
         message: 'Fetching order information...',
       })
     );
@@ -63,7 +64,19 @@ const AdminPageContent = () => {
           order: result?.data?.order,
         })
       );
+      dispatch(
+        toggleOrderAlert({
+          alert: false,
+          message: '',
+        })
+      );
     } else {
+      dispatch(
+        toggleOrderAlert({
+          alert: false,
+          message: '',
+        })
+      );
       console.log('error occurred');
     }
   };
@@ -71,7 +84,7 @@ const AdminPageContent = () => {
   return (
     <div className="admin--page--content">
       <h2 style={{ textAlign: 'center' }}>{admin?.user?.location}</h2>
-      {alert.showAlert && <FetchingSingleOrderInformationAlert />}
+      {orderAlert.alert && <FetchingSingleOrderInformationAlert />}
 
       {loadingOrders ? (
         <PreloaderLarge />

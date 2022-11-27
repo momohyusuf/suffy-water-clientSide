@@ -1,19 +1,23 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   modal: {
     isOpen: false,
-    message: "",
-    orderId: "",
+    message: '',
+    orderId: '',
   },
   isLoading: false,
   alert: {
     showAlert: false,
-    message: "",
+    message: '',
+  },
+  orderAlert: {
+    alert: false,
+    message: '',
   },
   orders: null,
-  orderStatus: "pending",
-  orderId: "",
+  orderStatus: 'pending',
+  orderId: '',
   page: 1,
   showSearchOrderById: false,
   singleOrder: {
@@ -24,7 +28,7 @@ const initialState = {
 };
 
 export const orderSlice = createSlice({
-  name: "order",
+  name: 'order',
   initialState,
   reducers: {
     toggleModal: (state, action) => {
@@ -44,6 +48,9 @@ export const orderSlice = createSlice({
     },
     toggleShowSearchOrderById: (state, action) => {
       state.showSearchOrderById = action.payload;
+    },
+    toggleOrderAlert: (state, action) => {
+      state.orderAlert = action.payload;
     },
     updateSingleOrder: (state, action) => {
       state.singleOrder = action.payload;
@@ -71,5 +78,6 @@ export const {
   updateOrders,
   updatePage,
   updateOrderId,
+  toggleOrderAlert,
 } = orderSlice.actions;
 export default orderSlice.reducer;

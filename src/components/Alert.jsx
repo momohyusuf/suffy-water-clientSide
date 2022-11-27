@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { BsExclamationLg } from "react-icons/bs";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { BsExclamationLg } from 'react-icons/bs';
 
 const Alert = () => {
   const { alert } = useSelector((state) => state.order);
@@ -9,10 +9,10 @@ const Alert = () => {
       <div
         className="alert--box"
         style={{
-          display: "flex",
+          display: 'flex',
         }}
       >
-        {" "}
+        {' '}
         <BsExclamationLg color="red" />
         <p>{alert.message}</p>
       </div>
