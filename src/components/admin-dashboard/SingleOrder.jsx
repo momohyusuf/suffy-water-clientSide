@@ -112,7 +112,6 @@ const SingleOrder = () => {
         <p>
           <strong>Status</strong>:{' '}
           <span>
-            {/* {singleOrder.order.status} */}
             <UpdatedStatus
               color={`${
                 (status || singleOrder.order.status) === 'pending'

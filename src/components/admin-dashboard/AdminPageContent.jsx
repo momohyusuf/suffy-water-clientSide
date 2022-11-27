@@ -8,7 +8,6 @@ import {
 import {
   updateSingleOrder,
   updateOrders,
-  toggleAlert,
   toggleOrderAlert,
 } from '../../features/order/orderSlice';
 import SingleOrder from './SingleOrder';
