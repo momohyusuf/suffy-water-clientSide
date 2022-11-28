@@ -43,11 +43,8 @@ const AdminPageContent = () => {
 
     dispatch(updateOrders(data));
     setLoadingOrders(false);
-    const testing = data?.orders.reduce((acc, stat) => {
-      acc[stat.status] = (acc[stat.status] || 0) + 1;
-      return acc;
-    }, {});
-    setOrderData(testing);
+
+    setOrderData(data?.orderStatsNumbers);
   };
 
   useEffect(() => {

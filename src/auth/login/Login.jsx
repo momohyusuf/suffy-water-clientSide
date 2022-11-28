@@ -37,13 +37,13 @@ const Login = () => {
 
     const response = await loginAdminMutation(loginInformation);
 
-    if (response.data) {
-      dispatch(updateAdmin(response.data));
+    if (response?.data) {
+      dispatch(updateAdmin(response?.data));
       dispatch(updateIsPending(false));
       navigate('/admin');
     }
 
-    if (response.error.data.message) {
+    if (response?.error?.data?.message) {
       dispatch(
         toggleAlert({
           showAlert: true,
@@ -51,7 +51,11 @@ const Login = () => {
         })
       );
       dispatch(updateIsPending(false));
-    } else if (response.error.status === 'FETCH_ERROR' || response.error.data) {
+      return;
+    } else if (
+      response?.error?.status === 'FETCH_ERROR' ||
+      response?.error?.data
+    ) {
       dispatch(updateIsPending(false));
       dispatch(
         toggleAlert({

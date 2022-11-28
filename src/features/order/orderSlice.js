@@ -16,7 +16,7 @@ const initialState = {
     message: '',
   },
   orders: null,
-  orderStatus: 'pending',
+  orderStatus: '',
   orderId: '',
   page: 1,
   showSearchOrderById: false,
