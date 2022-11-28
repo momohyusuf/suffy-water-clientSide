@@ -4,6 +4,8 @@ import {
   MdOutlineCancelPresentation,
 } from 'react-icons/md';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import CountUp from 'react-countup';
+
 const OrderStats = ({ orderData }) => {
   const style = {
     display: 'flex',
@@ -73,7 +75,8 @@ export const OrderStatCard = ({ text, color, icon, number }) => {
           }}
         >
           {' '}
-          {number || 0}
+          {/* {number || 0} */}
+          <CountUp start={0} end={number || 0} duration={2} />
         </span>
         {icon}
       </p>
