@@ -7,7 +7,7 @@ import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 const OrderStats = ({ orderData }) => {
   const style = {
     display: 'flex',
-    columnGap: '1em',
+    columnGap: '2.5rem',
     marginTop: '2em',
     padding: '1em',
     borderRadius: '5px',
@@ -54,7 +54,7 @@ export const OrderStatCard = ({ text, color, icon, number }) => {
         display: 'grid',
         placeItems: 'center',
         color: color,
-        fontSize: '2rem',
+        fontSize: '1.7rem',
         fontWeight: '700',
       }}
     >

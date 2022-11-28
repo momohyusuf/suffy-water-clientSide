@@ -5,6 +5,7 @@ const UpdatedStatus = ({ status, color }) => {
     <span
       style={{
         color: color,
+        textTransform: 'capitalize',
       }}
     >
       {status}

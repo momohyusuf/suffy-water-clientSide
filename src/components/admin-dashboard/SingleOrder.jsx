@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   updateSingleOrder,
@@ -127,18 +126,23 @@ const SingleOrder = ({ getAllOrders }) => {
           </span>
         </p>
 
-        <p>Update order status</p>
-        <select
-          name="updateOrder"
-          onChange={(e) => {
-            updateOrderStatus(singleOrder.order._id, e.target.value);
-          }}
-        >
-          <option value="">-- update --</option>
-          <option value="pending">Pending</option>
-          <option value="fulfilled">Fulfilled</option>
-          <option value="cancelled">Cancelled</option>
-        </select>
+        <div style={{ display: 'flex', columnGap: '0.5em' }}>
+          {' '}
+          <p>
+            <strong>Update order status: </strong>
+          </p>
+          <select
+            name="updateOrder"
+            onChange={(e) => {
+              updateOrderStatus(singleOrder.order._id, e.target.value);
+            }}
+          >
+            <option value="">-- update --</option>
+            <option value="pending">Pending</option>
+            <option value="fulfilled">Fulfilled</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
       </section>
     </div>
   );
