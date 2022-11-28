@@ -394,7 +394,7 @@ nav {
   border: 0.5px solid $secondary-color;
   padding: 0.5em;
   border-radius: 5px;
-  margin: 1.5rem 1rem;
+  margin: 3rem 1rem;
   input {
     border: 0;
     outline: 0;
@@ -553,26 +553,32 @@ nav {
 
 table {
   width: 100%;
-  // margin: 2em;
   margin: 3em 0;
   border-collapse: collapse;
 }
 tr {
   cursor: pointer;
   transition: $transition;
+  border-bottom: 1px solid #bfd7ff;
+  color: rgb(103, 103, 103);
   &:hover {
     background-color: $secondary-color;
     color: $primary-color;
   }
 }
+th {
+  background-color: #0172ab;
+  color: #dddddd;
+}
 td,
 th {
   text-align: left;
   padding: 8px;
-  border: 1px solid #dddddd;
   text-transform: capitalize;
 }
 
+// +++++++++++++++++
+// ++++++++++++++++++++
 .single--order--container {
   padding: 3rem 2rem;
   position: relative;

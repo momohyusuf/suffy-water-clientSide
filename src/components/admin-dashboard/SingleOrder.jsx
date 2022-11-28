@@ -41,7 +41,7 @@ const SingleOrder = ({ getAllOrders }) => {
       setStatus(data.status);
     }
   };
-  console.log(status);
+
   // ++++++++++++++++++++++++++++
   const getSingleOrder = async () => {
     const result = await getSingleOrderMutation(singleOrder.order._id);

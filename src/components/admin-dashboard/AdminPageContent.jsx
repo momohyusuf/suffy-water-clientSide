@@ -17,9 +17,11 @@ import en from 'javascript-time-ago/locale/en';
 import Pagination from './Pagination';
 import SearchOrderWithID from './SearchOrderWithID';
 import FetchingSingleOrderInformationAlert from '../FetchingSingleOrderInformationAlert';
+import OrderStats from './OrderStats';
 
 TimeAgo.addDefaultLocale(en);
 const AdminPageContent = () => {
+  const [orderData, setOrderData] = useState(null);
   const { admin } = useSelector((state) => state.admin);
   const { orderAlert } = useSelector((state) => state.order);
   const { singleOrder, orderStatus, orders, page, showSearchOrderById } =
@@ -34,13 +36,18 @@ const AdminPageContent = () => {
   // ++++++++++++++++++++++++++++
   const getAllOrders = async () => {
     setLoadingOrders(true);
-    const response = await getAllOrdersMutation({
+    const { data } = await getAllOrdersMutation({
       orderStatus,
       page,
     });
 
-    dispatch(updateOrders(response?.data));
+    dispatch(updateOrders(data));
     setLoadingOrders(false);
+    const testing = data?.orders.reduce((acc, stat) => {
+      acc[stat.status] = (acc[stat.status] || 0) + 1;
+      return acc;
+    }, {});
+    setOrderData(testing);
   };
 
   useEffect(() => {
@@ -82,7 +89,9 @@ const AdminPageContent = () => {
 
   return (
     <div className="admin--page--content">
-      <h2 style={{ textAlign: 'center' }}>{admin?.user?.location}</h2>
+      <h1 style={{ textAlign: 'center' }}>
+        {admin?.user?.location.toUpperCase()}
+      </h1>
       {orderAlert.alert && <FetchingSingleOrderInformationAlert />}
 
       {loadingOrders ? (
@@ -101,45 +110,50 @@ const AdminPageContent = () => {
               <h3>Sorry No {orderStatus} orders</h3>
             </div>
           ) : (
-            <table>
-              <thead>
-                <tr>
-                  <th>S/N</th>
-                  <th>Name</th>
-                  <th>Delivery address</th>
-                  <th>Location</th>
-                  <th>Status</th>
-                  <th>Time</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {orders?.orders?.map((item, index) => (
-                  <tr onClick={() => getSingleOrder(item._id)} key={item._id}>
-                    <td>{index + 1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.deliveryAddress}</td>
-                    <td>{item.location}</td>
-                    <td
-                      style={{
-                        color: `${
-                          item.status === 'pending'
-                            ? 'orange'
-                            : item.status === 'fulfilled'
-                            ? '#62C370'
-                            : item.status === 'cancelled' && 'red'
-                        }`,
-                      }}
-                    >
-                      {item.status}
-                    </td>
-                    <td>
-                      {timeAgo.format(new Date(item?.createdAt || Date.now()))}
-                    </td>
+            <>
+              {orderStatus === '' && <OrderStats orderData={orderData} />}
+              <table>
+                <thead>
+                  <tr>
+                    <th>S/N</th>
+                    <th>Name</th>
+                    <th>Delivery address</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Time</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+
+                <tbody>
+                  {orders?.orders?.map((item, index) => (
+                    <tr onClick={() => getSingleOrder(item._id)} key={item._id}>
+                      <td>{index + 1}</td>
+                      <td>{item.name}</td>
+                      <td>{item.deliveryAddress}</td>
+                      <td>{item.location}</td>
+                      <td
+                        style={{
+                          color: `${
+                            item.status === 'pending'
+                              ? 'orange'
+                              : item.status === 'fulfilled'
+                              ? '#62C370'
+                              : item.status === 'cancelled' && 'red'
+                          }`,
+                        }}
+                      >
+                        {item.status}
+                      </td>
+                      <td>
+                        {timeAgo.format(
+                          new Date(item?.createdAt || Date.now())
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
           )}
         </>
       ) : (
