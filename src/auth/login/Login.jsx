@@ -82,7 +82,6 @@ const Login = () => {
         className="form--container"
         style={{
           marginBottom: '3em',
-          height: 'calc(100vh - 300px)',
         }}
       >
         <form onSubmit={handleSubmit} className="login--container">
