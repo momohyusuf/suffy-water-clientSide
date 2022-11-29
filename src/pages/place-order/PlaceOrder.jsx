@@ -119,6 +119,10 @@ const PlaceOrder = () => {
       {alert.showAlert && <Alert />}
       {modal.open && <Modal />}
       <div className="form--container">
+        <div className="ocean">
+          <div className="wave"></div>
+          <div className="wave"></div>
+        </div>
         <form
           onSubmit={(e) => {
             e.preventDefault();

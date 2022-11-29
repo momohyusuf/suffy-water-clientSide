@@ -8,7 +8,9 @@
 html {
   scroll-behavior: smooth;
 }
-
+body {
+  overflow-x: hidden;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -296,12 +298,14 @@ nav {
 // +++++++++++++++++++
 // ++++++++++++++++++++
 .form--container {
-  @include maximum-width;
+  // @include maximum-width;
   display: grid;
   place-items: center;
-  // height: 100vh;
+  height: 100%;
   padding: 0 0.5em;
   margin-bottom: 10em;
+
+  // +++++++++++++++++++
 
   p {
     display: block;
@@ -318,6 +322,13 @@ nav {
     border: 0.5px solid $secondary-color;
     box-shadow: $shadow;
     border-radius: 5px;
+    background: radial-gradient(
+      ellipse at center,
+      #fffeea 0%,
+      #fffeea 35%,
+      #b7e8eb 100%
+    );
+
     .quantity--container {
       display: flex;
       align-items: center;
@@ -396,7 +407,7 @@ nav {
   border: 0.5px solid $secondary-color;
   padding: 0.5em;
   border-radius: 5px;
-  margin: 2rem 0rem;
+  margin: 1rem 0rem;
 
   input {
     border: 0;
@@ -614,11 +625,11 @@ option {
   @include maximum-width;
   padding-top: 10rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  div {
+  place-items: center;
+
+  article {
     text-align: center;
-    max-width: 400px;
+    max-width: 470px;
     margin: 1.5em 0;
     padding: 0 1em;
   }
@@ -633,8 +644,12 @@ option {
 @media screen and (min-width: 1000px) {
   .why--us--container {
     padding: 10rem 0;
-    div {
+    article {
       padding: 0;
+    }
+    .top--content {
+      display: flex;
+      column-gap: 4em;
     }
   }
 }

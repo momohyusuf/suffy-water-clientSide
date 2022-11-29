@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import Homepage from "./pages/homepage/Homepage";
-import { Routes, Route } from "react-router-dom";
-import SharedLayout from "./components/SharedLayout";
-import PlaceOrder from "./pages/place-order/PlaceOrder";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleAlert } from "./features/order/orderSlice";
-import Admin from "./pages/admin/Admin";
-import Login from "./auth/login/Login";
-import PrivateRoutes from "./components/PrivateRoutes";
+import React, { useEffect } from 'react';
+import Homepage from './pages/homepage/Homepage';
+import { Routes, Route } from 'react-router-dom';
+import SharedLayout from './components/SharedLayout';
+import PlaceOrder from './pages/place-order/PlaceOrder';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleAlert } from './features/order/orderSlice';
+import Admin from './pages/admin/Admin';
+import Login from './auth/login/Login';
+import PrivateRoutes from './components/PrivateRoutes';
 
 const App = () => {
   const { alert } = useSelector((state) => state.order);
@@ -18,7 +18,7 @@ const App = () => {
       dispatch(
         toggleAlert({
           showAlert: false,
-          message: "",
+          message: '',
         })
       );
     }, 2000);
@@ -32,9 +32,10 @@ const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Homepage />} />
-        <Route path="place-order" element={<PlaceOrder />} />
         <Route path="login" element={<Login />} />
+        <Route path="place-order" element={<PlaceOrder />} />
       </Route>
+
       <Route element={<PrivateRoutes />}>
         <Route path="/admin" element={<Admin />} />
       </Route>
