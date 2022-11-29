@@ -36,7 +36,7 @@ const AdminSideBar = () => {
     );
     const response = await logoutMutation();
     if (response.data.message === 'logout successful') {
-      dispatch(toggleOrderStatus('pending'));
+      dispatch(toggleOrderStatus(''));
       dispatch(
         toggleOrderAlert({
           alert: false,
