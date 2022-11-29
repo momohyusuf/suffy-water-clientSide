@@ -8,9 +8,7 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  overflow-x: hidden;
-}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -400,6 +398,12 @@ nav {
   border: 0.5px solid $secondary-color;
   border-radius: 5px;
   box-shadow: $shadow;
+  background: radial-gradient(
+    ellipse at center,
+    #fffeea 0%,
+    #fffeea 35%,
+    #b7e8eb 100%
+  );
 }
 .login--input--container {
   display: flex;
@@ -408,6 +412,7 @@ nav {
   padding: 0.5em;
   border-radius: 5px;
   margin: 1rem 0rem;
+  background-color: #fff;
 
   input {
     border: 0;
@@ -506,9 +511,15 @@ nav {
   }
 }
 .admin--page--content {
-  margin-left: 20rem;
-  margin-right: 1.6rem;
-  padding-top: 2em;
+  padding: 1rem 1.6rem 1rem 20rem;
+  width: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    #fffeea 0%,
+    #fffeea 35%,
+    #b7e8eb 100%
+  );
+  min-height: 100vh;
   ul {
     display: flex;
     justify-content: center;
