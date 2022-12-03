@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { BsReceipt } from 'react-icons/bs';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 import { useDispatch } from 'react-redux';
+import logo from '../assets/images/suffy-logo.png';
 
 import { toggleModal } from '../features/order/orderSlice';
 
@@ -12,14 +13,14 @@ const ModalContent = ({ orderInfo }) => {
   const dispatch = useDispatch();
   const ref = useRef();
 
-  const savePdf = () => {
+  const savePdf = async () => {
     // use html2canvas to convert the HTML element to a canvas element
-    html2canvas(ref.current).then(function (canvas) {
+    await html2canvas(ref.current).then(function (canvas) {
       // create a new jsPDF instance
       const doc = new jsPDF({});
 
       // add the canvas element to the PDF
-      doc.addImage(canvas, 'JPEG', 15, 15);
+      doc.addImage(canvas, 'JPEG', 12, 12);
 
       // save the PDF
       doc.save('Suffy-water-receipt.pdf');
@@ -43,11 +44,19 @@ const ModalContent = ({ orderInfo }) => {
         }}
         ref={ref}
       >
+        <div
+          style={{
+            display: 'flex',
+
+            justifyContent: 'center',
+          }}
+        >
+          <img src={logo} alt="logo" width="100px" />
+        </div>
         <div>
           {' '}
           <p
             style={{
-              marginTop: '1em',
               display: 'flex',
 
               alignItems: 'center',
