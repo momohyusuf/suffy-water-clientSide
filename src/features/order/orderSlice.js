@@ -4,7 +4,7 @@ const initialState = {
   modal: {
     isOpen: false,
     message: '',
-    orderId: '',
+    order: null,
   },
   isLoading: false,
   alert: {

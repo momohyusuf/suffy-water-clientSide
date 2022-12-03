@@ -78,7 +78,7 @@ const PlaceOrder = () => {
         toggleModal({
           open: true,
           message: response?.data?.message,
-          orderId: response?.data?.orderId,
+          order: response?.data?.order,
         })
       );
       setOrderInformation({
