@@ -8,6 +8,7 @@ import { toggleAlert } from './features/order/orderSlice';
 import Admin from './pages/admin/Admin';
 import Login from './auth/login/Login';
 import PrivateRoutes from './components/PrivateRoutes';
+import ErrorPage from './pages/error-page/ErrorPage';
 
 const App = () => {
   const { alert } = useSelector((state) => state.order);
@@ -39,6 +40,7 @@ const App = () => {
       <Route element={<PrivateRoutes />}>
         <Route path="/admin" element={<Admin />} />
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };
