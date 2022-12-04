@@ -9,7 +9,6 @@ import Alert from '../../components/Alert';
 import { useCreateOrderMutation } from '../../services/ordersApi';
 import Navbar from '../../components/navbar/Navbar';
 import HomePageSidebar from '../../components/HomePageSidebar';
-import { updateIsPending } from '../../features/admin/adminSlice';
 
 const PlaceOrder = () => {
   const [orderInformation, setOrderInformation] = useState({
@@ -23,7 +22,7 @@ const PlaceOrder = () => {
 
   const [totalAmount, setTotalAmount] = useState(0);
   const { modal, alert, isSidebarOpen } = useSelector((state) => state.order);
-  const { isPending } = useSelector((state) => state.admin);
+  const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
   // ++++++++
   const [createOrderMutation] = useCreateOrderMutation();
@@ -66,7 +65,7 @@ const PlaceOrder = () => {
       );
       return;
     }
-    dispatch(updateIsPending(true));
+    setIsPending(true);
 
     const response = await createOrderMutation({
       orderInformation,
@@ -89,12 +88,12 @@ const PlaceOrder = () => {
         deliveryAddress: '',
         name: '',
       });
-      dispatch(updateIsPending(false));
+      setIsPending(false);
       return;
     }
 
     if (response.error.data.message) {
-      dispatch(updateIsPending(false));
+      setIsPending(false);
       dispatch(
         toggleAlert({
           showAlert: true,
@@ -102,7 +101,7 @@ const PlaceOrder = () => {
         })
       );
     } else if (response.error.status === 'FETCH_ERROR' || response.error.data) {
-      dispatch(updateIsPending(false));
+      setIsPending(false);
       dispatch(
         toggleAlert({
           showAlert: true,
