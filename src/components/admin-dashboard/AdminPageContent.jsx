@@ -130,7 +130,9 @@ const AdminPageContent = () => {
                       <td>{item.location}</td>
                       <td
                         style={{
-                          color: `${
+                          color: 'white',
+                          borderRadius: '10px',
+                          backgroundColor: `${
                             item.status === 'pending'
                               ? 'orange'
                               : item.status === 'fulfilled'

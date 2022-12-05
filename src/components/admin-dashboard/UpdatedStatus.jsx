@@ -4,8 +4,11 @@ const UpdatedStatus = ({ status, color }) => {
   return (
     <span
       style={{
-        color: color,
+        backgroundColor: color,
+        color: 'white',
+        borderRadius: '5px',
         textTransform: 'capitalize',
+        padding: '0.2em 0.3em',
       }}
     >
       {status}
