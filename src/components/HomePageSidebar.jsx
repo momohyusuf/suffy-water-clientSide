@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toggleSidebar } from '../features/order/orderSlice';
 
 const HomePageSidebar = () => {
@@ -23,10 +23,9 @@ const HomePageSidebar = () => {
         <p
           onClick={() => {
             dispatch(toggleSidebar(false));
-            navigate('/login');
           }}
         >
-          Log in{' '}
+          <NavLink to="/login">Log in </NavLink>
           <span
             style={{
               fontSize: '0.6rem',
@@ -39,10 +38,9 @@ const HomePageSidebar = () => {
         <p
           onClick={() => {
             dispatch(toggleSidebar(false));
-            navigate('/place-order');
           }}
         >
-          Place Order
+          <NavLink to="/place-order">Place Order</NavLink>
         </p>
       </div>
     </aside>

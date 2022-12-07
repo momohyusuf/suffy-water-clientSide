@@ -9,6 +9,7 @@ import Alert from '../../components/Alert';
 import { useCreateOrderMutation } from '../../services/ordersApi';
 import Navbar from '../../components/navbar/Navbar';
 import HomePageSidebar from '../../components/HomePageSidebar';
+import { FaMoneyBill } from 'react-icons/fa';
 
 const PlaceOrder = () => {
   const [orderInformation, setOrderInformation] = useState({
@@ -51,6 +52,18 @@ const PlaceOrder = () => {
   // submit orderInformation to data base
 
   const handleSubmit = async () => {
+    if (
+      orderInformation.location === 'Estako-west' &&
+      orderInformation.numOfPacks
+    ) {
+      dispatch(
+        toggleAlert({
+          showAlert: true,
+          message: '75cl bottle water currently not available at Estako-west',
+        })
+      );
+      return;
+    }
     if (
       !orderInformation.name ||
       !orderInformation.deliveryAddress ||
@@ -277,11 +290,23 @@ const PlaceOrder = () => {
           <button onClick={handleSubmit} disabled={isPending}>
             {!isPending ? <span>Confirm Order</span> : <PreloaderSmall />}
           </button>
-          <p style={{ textAlign: 'center' }}>
-            {' '}
-            We currently only support payment on delivery.
-          </p>
         </form>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          {' '}
+          <FaMoneyBill
+            style={{
+              fontSize: '1.5rem',
+              marginRight: '0.3rem',
+              color: 'green',
+            }}
+          />
+          <p>We currently only support payment on delivery</p>
+        </div>
       </div>
     </>
   );
