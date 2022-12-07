@@ -232,8 +232,7 @@ button:disabled {
     margin-bottom: 1em;
     tr {
       &:hover {
-        background-color: unset;
-        color: unset;
+        transform: unset;
         cursor: default;
       }
     }
@@ -636,6 +635,7 @@ tr {
   border-bottom: 1px solid #bfd7ff;
   color: rgb(103, 103, 103);
   transition: all 0.3s ease-in-out;
+
   &:hover {
     transform: scale(0.95);
   }
@@ -647,7 +647,7 @@ th {
 td,
 th {
   text-align: left;
-  padding: 8px;
+  padding: 1em 8px;
   text-transform: capitalize;
 }
 
