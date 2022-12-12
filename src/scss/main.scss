@@ -638,6 +638,8 @@ tr {
 
   &:hover {
     transform: scale(0.95);
+    color: black;
+    font-weight: bold;
   }
 }
 th {
