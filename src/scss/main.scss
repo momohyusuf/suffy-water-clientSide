@@ -639,7 +639,9 @@ tr {
   &:hover {
     transform: scale(0.95);
     color: black;
-    font-weight: bold;
+    // background-color: white;
+    border-radius: 5px;
+    box-shadow: $shadow;
   }
 }
 th {
