@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { BsKeyFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,6 +21,11 @@ const Login = () => {
   const [isPending, setIsPending] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Suffy Water | Login';
+  }, []);
+
   // +++++++++++++++++++++
   const handleSubmit = async (e) => {
     e.preventDefault();

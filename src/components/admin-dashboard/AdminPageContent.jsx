@@ -48,6 +48,7 @@ const AdminPageContent = () => {
   };
 
   useEffect(() => {
+    document.title = 'Suffy Water | Admin Dashboard';
     getAllOrders();
   }, [page, orderStatus]);
   // +===========================

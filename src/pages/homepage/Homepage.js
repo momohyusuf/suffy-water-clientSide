@@ -24,6 +24,7 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   const showAdmin = async () => {
+    document.title = 'Suffy Water';
     dispatch(toggleIsLoading(true));
     const response = await showCurrentAdminMutation();
     if (response.data) {
