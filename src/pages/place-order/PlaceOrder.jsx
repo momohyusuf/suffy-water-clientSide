@@ -221,13 +221,13 @@ const PlaceOrder = () => {
           <p>Contact information</p>
           <p>
             Name
-            <sup
+            <span
               style={{
                 color: 'red',
               }}
             >
               *
-            </sup>
+            </span>
           </p>
           <CollectInputsValue
             value={orderInformation.name}
@@ -238,13 +238,13 @@ const PlaceOrder = () => {
           />
           <p>
             Location
-            <sup
+            <span
               style={{
                 color: 'red',
               }}
             >
               *
-            </sup>
+            </span>
           </p>
           <select
             name="location"
@@ -257,13 +257,13 @@ const PlaceOrder = () => {
           </select>
           <p>
             Delivery Address
-            <sup
+            <span
               style={{
                 color: 'red',
               }}
             >
               *
-            </sup>
+            </span>
           </p>
           <CollectInputsValue
             name="deliveryAddress"
@@ -274,13 +274,13 @@ const PlaceOrder = () => {
           />
           <p>
             Phone Number
-            <sup
+            <span
               style={{
                 color: 'red',
               }}
             >
               *
-            </sup>
+            </span>
           </p>
           <CollectInputsValue
             name="phoneNumber"

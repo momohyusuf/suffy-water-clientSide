@@ -18,7 +18,7 @@ import {
   MdOutlineCancelPresentation,
 } from 'react-icons/md';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
-
+import logo from '../../assets/images/suffy-logo.png';
 // const statusFilter = ['pending', 'fulfilled', 'cancelled'];
 
 const AdminSideBar = () => {
@@ -69,6 +69,18 @@ const AdminSideBar = () => {
   return (
     <div className="admin--sidebar">
       <div className="admin--sidebar--header">
+        <div className="logo">
+          <img
+            style={{
+              marginLeft: '1em',
+              marginBottom: '1em',
+              borderRadius: '5px',
+            }}
+            src={logo}
+            alt="logo"
+            width="60px"
+          />
+        </div>
         <p
           style={{
             // color: "#F2542D",

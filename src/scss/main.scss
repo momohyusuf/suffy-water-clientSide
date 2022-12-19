@@ -418,6 +418,11 @@ nav {
   button {
     margin: 1em 0;
   }
+  select {
+    background-color: white;
+    color: #07004d;
+    border: 0.5px solid $secondary-color;
+  }
   button:hover,
   button:focus {
     background-color: rgb(2, 74, 175);
@@ -693,7 +698,8 @@ option {
   article {
     text-align: center;
     max-width: 470px;
-    margin: 1.5em 0;
+    // margin: 1.5em 0;
+    margin-bottom: 5rem;
     padding: 0 1em;
   }
   h2 {
