@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Pagination, Scrollbar, A11y } from 'swiper';
 import { MdLocationPin } from 'react-icons/md';
 import { AiFillStar } from 'react-icons/ai';
 import { reviews } from '../../data/reviews';
@@ -6,7 +6,7 @@ import { reviews } from '../../data/reviews';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/scss';
-import 'swiper/scss/navigation';
+
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 const Reviews = () => {
@@ -17,10 +17,9 @@ const Reviews = () => {
         <div className="slider--container">
           <Swiper
             // install Swiper modules
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={100}
+            modules={[Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
             slidesPerView={1}
-            navigation
             pagination={{ clickable: true }}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
