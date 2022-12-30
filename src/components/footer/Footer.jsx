@@ -28,12 +28,7 @@ const Footer = () => {
             <p>NAFDAC REG: C1 - 9914L</p>
           </div>
           {/* *************************** */}
-          <div
-            style={{
-              padding: '0.7em 0',
-              display: 'flex',
-            }}
-          >
+          <div>
             <GoClock
               color="white"
               style={{
@@ -46,13 +41,7 @@ const Footer = () => {
             </div>
           </div>
           {/* **************************** */}
-          <div
-            style={{
-              padding: '0.7em 0',
-              display: 'flex',
-            }}
-          >
-            <MdLocationPin color="#D62246" />
+          <div>
             <div>
               {' '}
               <p>
@@ -73,13 +62,7 @@ const Footer = () => {
           </div>
 
           {/* ********************** */}
-          <div
-            style={{
-              paddingBottom: '2.5em',
-              display: 'flex',
-            }}
-          >
-            <MdLocationPin color="#D62246" />
+          <div>
             <div>
               <p>
                 Plot No: Bwari/FO2/1293,
@@ -118,6 +101,7 @@ const Footer = () => {
             fontWeight: '300',
             borderTop: '1px solid rgb(52, 52, 52)',
             fontSize: '0.5rem',
+            marginTop: '3rem',
           }}
         >
           <p>
