@@ -1,0 +1,15 @@
+.order--stats {
+  display: flex;
+  column-gap: 2rem;
+
+  margin-top: 1rem;
+  div {
+    background-color: #ffff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+}

@@ -1,0 +1,22 @@
+.admin--page--nav {
+  position: sticky;
+  z-index: 9;
+  height: 90px;
+  background-color: #091540;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  padding: 1rem 2rem;
+  color: #bfd7ff;
+  h2 {
+    color: #bfd7ff;
+  }
+  img {
+    border-radius: 5px;
+  }
+  span {
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+}

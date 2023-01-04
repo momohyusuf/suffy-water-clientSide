@@ -1,0 +1,98 @@
+// ++++++++++++++++++++
+.form--container {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 0 0.5em;
+  margin-bottom: 10em;
+
+  // +++++++++++++++++++
+
+  p {
+    display: block;
+    margin: 0.5em 0;
+    color: rgb(79, 72, 72);
+    font-size: 0.9rem;
+  }
+
+  .place--order--form--container {
+    width: 100%;
+    max-width: 500px;
+    padding: 1em 0.5em;
+    margin: 3em 0;
+    border: 0.5px solid #0f95f6;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px;
+    border-radius: 5px;
+    background: radial-gradient(
+      ellipse at center,
+      #fffeea 0%,
+      #fffeea 35%,
+      #b7e8eb 100%
+    );
+
+    .quantity--container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid gray;
+    }
+    .quantity--container input {
+      max-width: 100px;
+      margin-right: 3rem;
+    }
+    input {
+      padding: 0.8rem;
+      border-radius: 5px;
+      outline: 0;
+      width: 100%;
+      border: 0.5px solid #0f95f6;
+      transition: all 0.3s linear;
+
+      &:hover,
+      &:focus {
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px;
+      }
+    }
+  }
+  button,
+  select {
+    width: 100%;
+    padding: 0.6em 0;
+    background-color: #0f95f6;
+    border: 0;
+    border-radius: 5px;
+    color: #f6f2ff;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px;
+    }
+  }
+  button {
+    margin: 1em 0;
+  }
+  select {
+    background-color: white;
+    color: #07004d;
+    border: 0.5px solid #f6f2ff;
+  }
+  button:hover,
+  button:focus {
+    background-color: rgb(2, 74, 175);
+  }
+}
+.item--order {
+  display: flex;
+  margin: 0.5em 0;
+  // align-items: center;
+  text-align: center;
+  img {
+    width: 75px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px;
+    margin-right: auto;
+  }
+}

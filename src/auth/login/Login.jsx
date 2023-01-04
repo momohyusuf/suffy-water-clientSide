@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { BsKeyFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import PreloaderSmall from '../../components/PreloaderSmall';
+import PreloaderSmall from '../../components/preloaders/PreloaderSmall';
 import { toggleAlert } from '../../features/order/orderSlice';
-import Alert from '../../components/Alert';
+import Alert from '../../components/alerts/Alert';
 import { useLoginAdminMutation } from '../../services/authApi';
 import { updateAdmin } from '../../features/admin/adminSlice';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/navbar/Navbar';
-import HomePageSidebar from '../../components/HomePageSidebar';
+import Navbar from '../../components/homepage-navbar/Navbar';
+import HomePageSidebar from '../../components/homepage-sidebar/HomePageSidebar';
+import './login.scss';
 
 const Login = () => {
   const [loginInformation, setLoginInformation] = useState({

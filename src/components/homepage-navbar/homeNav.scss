@@ -1,0 +1,17 @@
+.home--nav {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: #f6f2ff;
+}
+.nav--items {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3em 1em;
+}

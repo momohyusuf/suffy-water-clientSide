@@ -1,6 +1,7 @@
 import React from 'react';
 import drinkWater from '../../assets/images/drinking-water.png';
 import CustomBtn from '../CustomBtn';
+import './hero.scss';
 
 const Hero = () => {
   return (

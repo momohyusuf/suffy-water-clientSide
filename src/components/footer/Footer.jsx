@@ -1,21 +1,17 @@
 import React from 'react';
-import { MdLocationPin } from 'react-icons/md';
+
 import { BiPhoneCall } from 'react-icons/bi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { GoClock } from 'react-icons/go';
+import { IoLocationSharp } from 'react-icons/io5';
+import './footer.scss';
 
 const Footer = () => {
   return (
     <footer>
       <section className="footer--content">
         <section>
-          <div
-            style={{
-              padding: '0.2em 0',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
+          <div>
             <img
               src={require('../../assets/images/nafdac-logo.jpeg')}
               width="30px"
@@ -28,28 +24,21 @@ const Footer = () => {
             <p>NAFDAC REG: C1 - 9914L</p>
           </div>
           {/* *************************** */}
-          <div>
-            <GoClock
-              color="white"
-              style={{
-                marginRight: '0.2em',
-              }}
-            />
+          <div className="company--address">
+            <GoClock color="white" />
             <div>
               <p> Open: Monday - Saturday</p>
               <p>Time: 08:00am - 05:00pm</p>
             </div>
           </div>
           {/* **************************** */}
-          <div>
+          <div className="company--address">
+            <IoLocationSharp />{' '}
             <div>
               {' '}
-              <p>
-                Kes Corner Old Auchi Road,
-                <br />
-                Aviele, Estako West LGA,
-                <br /> Edo Sate.
-              </p>
+              <p>Kes Corner Old Auchi Road,</p>
+              <p> Aviele, Estako West LGA,</p>
+              <p> Edo Sate.</p>
               <p>
                 <BiPhoneCall
                   style={{
@@ -62,14 +51,15 @@ const Footer = () => {
           </div>
 
           {/* ********************** */}
-          <div>
+          <div className="company--address">
+            <IoLocationSharp />
+
             <div>
-              <p>
-                Plot No: Bwari/FO2/1293,
-                <br />
-                Action Layout, Arab Contractor Road,
-                <br /> FCT-Abuja.
-              </p>
+              <p> Plot No: Bwari / FO2 / 1293,</p>
+
+              <p> Action Layout, Arab Contractor Road,</p>
+              <p> FCT-Abuja.</p>
+
               <p>
                 <BiPhoneCall
                   style={{
@@ -110,10 +100,10 @@ const Footer = () => {
           </p>
           <p
             style={{
-              fontSize: '0.5rem',
+              fontSize: '0.7rem',
             }}
           >
-            Developed by Starkweb Technologies +23409166454614, <br />
+            Powered by Starkweb Technologies. <br /> +23409166454614,
             +2347067435729
           </p>
         </div>

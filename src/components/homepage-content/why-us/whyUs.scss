@@ -1,0 +1,36 @@
+// homepage components styling
+.why--us--container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 10rem;
+  display: grid;
+  place-items: center;
+
+  article {
+    text-align: center;
+    max-width: 470px;
+    // margin: 1.5em 0;
+    margin-bottom: 5rem;
+    padding: 0 1em;
+  }
+  h2 {
+    margin-bottom: 0.6rem;
+  }
+  p {
+    line-height: 1.5;
+    color: gray;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .why--us--container {
+    padding: 10rem 0;
+    article {
+      padding: 0;
+    }
+    .top--content {
+      display: flex;
+      column-gap: 4em;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.alert--box {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 300px;
+  border: 1px solid red;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px;
+  padding: 0.5em;
+}

@@ -1,0 +1,56 @@
+// hero section
+.hero--container {
+  height: calc(100vh - 50px);
+  display: grid;
+  align-items: center;
+  background: linear-gradient(
+      to top,
+      rgba(15, 150, 246, 0.88) 10%,
+      rgba(0, 0, 0, 0.2) 90%
+    ),
+    url('../../assets/images/hero-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.hero--container h1 {
+  color: rgb(255, 255, 255);
+}
+.hero--items {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand--description {
+  max-width: 1000px;
+}
+.brand--description p {
+  color: rgb(217, 233, 246);
+  padding: 1.5rem 0.8rem;
+  font-size: 1.2rem;
+}
+.drink-water-image {
+  display: none;
+  width: 800px;
+  // box-shadow: $shadow;
+}
+@media screen and (min-width: 1000px) {
+  .drink-water-image {
+    display: block;
+  }
+  .brand--description {
+    max-width: 600px;
+    p {
+      padding: 1.5rem 0;
+    }
+  }
+}
+@media screen and (min-width: 1000px) {
+  .hero--container {
+    text-align: left;
+    padding: 1rem 0;
+  }
+}

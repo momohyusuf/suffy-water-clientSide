@@ -1,13 +1,13 @@
 import React from 'react';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/homepage-navbar/Navbar';
 
 import Hero from '../../components/hero/Hero';
-import HomePageSidebar from '../../components/HomePageSidebar';
+import HomePageSidebar from '../../components/homepage-sidebar/HomePageSidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import WhyUs from '../../components/homepage-content/WhyUs';
-import ImageIllustrations from '../../components/homepage-content/ImageIllustrations';
-import Reviews from '../../components/homepage-content/Reviews';
-import OurNumbers from '../../components/homepage-content/OurNumbers';
+import WhyUs from '../../components/homepage-content/why-us/WhyUs';
+import ImageIllustrations from '../../components/homepage-content/image-illustartions/ImageIllustrations';
+import Reviews from '../../components/homepage-content/reviews/Reviews';
+import OurNumbers from '../../components/homepage-content/our-numbers/OurNumbers';
 
 import { useEffect } from 'react';
 import { useShowCurrentAdminMutation } from '../../services/authApi';

@@ -10,19 +10,17 @@ import {
   updateOrders,
   toggleOrderAlert,
 } from '../../features/order/orderSlice';
-import SingleOrder from './SingleOrder';
-import PreloaderLarge from '../PreloaderLarge';
-import TimeAgo from 'javascript-time-ago';
-import en from 'javascript-time-ago/locale/en';
-import Pagination from './Pagination';
-import SearchOrderWithID from './SearchOrderWithID';
-import FetchingSingleOrderInformationAlert from '../FetchingSingleOrderInformationAlert';
-import OrderStats from './OrderStats';
+import SingleOrder from './single-order-details/SingleOrder';
+import PreloaderLarge from '../preloaders/PreloaderLarge';
 
-TimeAgo.addDefaultLocale(en);
+import Pagination from './pagination/Pagination';
+import SearchOrderWithID from './search-for-order/SearchOrderWithID';
+import FetchingSingleOrderInformationAlert from '../FetchingSingleOrderInformationAlert';
+import OrderStats from './order-stats/OrderStats';
+import OrdersTable from './ordersTable/OrdersTable';
+
 const AdminPageContent = () => {
   const [orderData, setOrderData] = useState(null);
-  const { admin } = useSelector((state) => state.admin);
   const { orderAlert } = useSelector((state) => state.order);
   const { singleOrder, orderStatus, orders, page, showSearchOrderById } =
     useSelector((state) => state.order);
@@ -30,8 +28,6 @@ const AdminPageContent = () => {
   const [getAllOrdersMutation] = useGetAllOrdersMutation();
   const [getSingleOrderMutation] = useGetSingleOrderMutation();
   const dispatch = useDispatch();
-
-  const timeAgo = new TimeAgo('en-US');
 
   // ++++++++++++++++++++++++++++
   const getAllOrders = async () => {
@@ -87,11 +83,7 @@ const AdminPageContent = () => {
 
   return (
     <div className="admin--page--content">
-      <h1 style={{ textAlign: 'center' }}>
-        {admin?.user?.location.toUpperCase()}
-      </h1>
       {orderAlert.alert && <FetchingSingleOrderInformationAlert />}
-
       {loadingOrders ? (
         <PreloaderLarge />
       ) : showSearchOrderById ? (
@@ -110,55 +102,14 @@ const AdminPageContent = () => {
           ) : (
             <>
               {orderStatus === '' && <OrderStats orderData={orderData} />}
-              <table>
-                <thead>
-                  <tr>
-                    <th>S/N</th>
-                    <th>Name</th>
-                    <th>Delivery address</th>
-                    <th>Location</th>
-                    <th>Status</th>
-                    <th>Time</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {orders?.orders?.map((item, index) => (
-                    <tr onClick={() => getSingleOrder(item._id)} key={item._id}>
-                      <td>{index + 1}</td>
-                      <td>{item.name}</td>
-                      <td>{item.deliveryAddress}</td>
-                      <td>{item.location}</td>
-                      <td
-                        style={{
-                          color: 'white',
-                          borderRadius: '10px',
-                          backgroundColor: `${
-                            item.status === 'pending'
-                              ? 'orange'
-                              : item.status === 'fulfilled'
-                              ? '#62C370'
-                              : item.status === 'cancelled' && 'red'
-                          }`,
-                        }}
-                      >
-                        {item.status}
-                      </td>
-                      <td>
-                        {timeAgo.format(
-                          new Date(item?.createdAt || Date.now())
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <OrdersTable orders={orders} getSingleOrder={getSingleOrder} />
             </>
           )}
         </>
       ) : (
         <SingleOrder getAllOrders={getAllOrders} />
       )}
+
       {orders?.totalOrders <= 20 || (!singleOrder.isShown && <Pagination />)}
     </div>
   );

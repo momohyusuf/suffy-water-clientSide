@@ -1,0 +1,40 @@
+// ***************************
+.login--container {
+  width: 100%;
+  max-width: 500px;
+  padding: 1em 0.5em;
+  margin: 5rem 1em;
+
+  border: 0.5px solid #0f95f6;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: radial-gradient(
+    ellipse at center,
+    #fffeea 0%,
+    #fffeea 35%,
+    #b7e8eb 100%
+  );
+}
+.login--input--container {
+  display: flex;
+  align-items: center;
+  border: 0.5px solid #0f95f6;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin: 1rem 0rem;
+  background-color: #fff;
+
+  input {
+    border: 0;
+    outline: 0;
+    caret-color: #0172ab;
+    font-size: 1.1rem;
+    color: gray;
+    width: 100%;
+    letter-spacing: 0.1em;
+  }
+  .login-icons {
+    font-size: 1.7rem;
+    margin-right: 0.3em;
+  }
+}

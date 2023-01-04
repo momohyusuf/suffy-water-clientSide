@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 import CollectInputsValue from '../../components/inputs/CollectInputsValue';
-import Modal from '../../components/Modal';
+import Modal from '../../components/modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleModal, toggleAlert } from '../../features/order/orderSlice';
-import PreloaderSmall from '../../components/PreloaderSmall';
-import Alert from '../../components/Alert';
+import PreloaderSmall from '../../components/preloaders/PreloaderSmall';
+import Alert from '../../components//alerts/Alert';
 import { useCreateOrderMutation } from '../../services/ordersApi';
-import Navbar from '../../components/navbar/Navbar';
-import HomePageSidebar from '../../components/HomePageSidebar';
+import Navbar from '../../components/homepage-navbar/Navbar';
+import HomePageSidebar from '../../components/homepage-sidebar/HomePageSidebar';
 import { FaMoneyBill } from 'react-icons/fa';
-
+import './placeOrder.scss';
 const PlaceOrder = () => {
   const [orderInformation, setOrderInformation] = useState({
     numOfPacks: '',
