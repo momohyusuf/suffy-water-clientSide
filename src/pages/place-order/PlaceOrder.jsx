@@ -164,7 +164,7 @@ const PlaceOrder = () => {
                 onChange={handleInputs}
                 placeholder="0"
               />
-              <p>X 200</p>
+              <p>X &#8358;200</p>
             </div>
             <p>
               {' '}
@@ -195,7 +195,7 @@ const PlaceOrder = () => {
                 onChange={handleInputs}
                 placeholder="0"
               />
-              <p>X 800</p>
+              <p>X &#8358;800</p>
             </div>
             <p>
               {' '}

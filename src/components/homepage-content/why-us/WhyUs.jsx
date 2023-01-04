@@ -4,10 +4,11 @@ import './whyUs.scss';
 const WhyUs = () => {
   return (
     <section className="why--us--container">
+      <h2>Why You Should Trust Us with your Drinking water</h2>
       <div className="top--content">
         {' '}
         <article>
-          <h2>Modern Technology</h2>
+          <h3>Modern Technology</h3>
           <p>
             Using state of the art facilities, we ensure that our water go
             through rigorous and proper treatment process using industry
@@ -16,7 +17,7 @@ const WhyUs = () => {
           </p>
         </article>
         <article>
-          <h2>Customer's Satisfaction</h2>
+          <h3>Customer's Satisfaction</h3>
           <p>
             Trusted by more than 100,000 household. Over the years we've made
             customer's satisfaction our priority. We're continually exploring
@@ -27,7 +28,7 @@ const WhyUs = () => {
       <div>
         <article>
           {' '}
-          <h2>Over 8years Experience</h2>
+          <h3>Over 8years Experience</h3>
           <p>
             We've been providing affordable drinking Water to Nigerians for over
             8 years.{' '}
