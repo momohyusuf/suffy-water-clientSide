@@ -123,6 +123,7 @@ const AdminSideBar = () => {
           position: 'absolute',
           bottom: '70px',
           cursor: 'pointer',
+          fontSize: '1.2rem',
         }}
         onClick={logoutAdmin}
         className="logout"
@@ -131,7 +132,7 @@ const AdminSideBar = () => {
         <FiLogOut />
         <span
           style={{
-            marginRight: '0.5em',
+            marginLeft: '0.5em',
           }}
         >
           Logout

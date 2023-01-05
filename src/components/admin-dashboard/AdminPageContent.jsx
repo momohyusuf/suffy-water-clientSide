@@ -19,8 +19,19 @@ import FetchingSingleOrderInformationAlert from '../FetchingSingleOrderInformati
 import OrderStats from './order-stats/OrderStats';
 import OrdersTable from './ordersTable/OrdersTable';
 
+// import useSWR from 'swr';
+// import { url } from '../../utils.';
+// import axios from 'axios';
+// const fetcher = async (endpoint) => {
+//   const { data } = await axios.get(`${url}/api/v1/orders/${endpoint}`, {
+//     withCredentials: true,
+//   });
+
+//   return data;
+// };
+
 const AdminPageContent = () => {
-  const [orderData, setOrderData] = useState(null);
+  const [ordersStats, setOrdersStats] = useState(null);
   const { orderAlert } = useSelector((state) => state.order);
   const { singleOrder, orderStatus, orders, page, showSearchOrderById } =
     useSelector((state) => state.order);
@@ -40,7 +51,7 @@ const AdminPageContent = () => {
     dispatch(updateOrders(data));
     setLoadingOrders(false);
 
-    setOrderData(data?.orderStatsNumbers);
+    setOrdersStats(data?.orderStatsNumbers);
   };
 
   useEffect(() => {
@@ -101,7 +112,7 @@ const AdminPageContent = () => {
             </div>
           ) : (
             <>
-              {orderStatus === '' && <OrderStats orderData={orderData} />}
+              {orderStatus === '' && <OrderStats ordersStats={ordersStats} />}
               <OrdersTable orders={orders} getSingleOrder={getSingleOrder} />
             </>
           )}

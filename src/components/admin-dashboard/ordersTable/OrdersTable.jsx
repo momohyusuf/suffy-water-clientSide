@@ -20,7 +20,7 @@ const OrdersTable = ({ orders, getSingleOrder }) => {
       </thead>
 
       <tbody>
-        {orders?.orders.map((item, index) => (
+        {orders?.orders?.map((item, index) => (
           <tr onClick={() => getSingleOrder(item._id)} key={item._id}>
             <td>{index + 1}</td>
             <td>{item.name}</td>

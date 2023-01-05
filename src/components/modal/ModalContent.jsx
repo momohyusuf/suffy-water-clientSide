@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import logo from '../../assets/images/suffy-logo.png';
 
 import { toggleModal } from '../../features/order/orderSlice';
+import { createDateString } from '../../utils.';
 
 const ModalContent = ({ orderInfo }) => {
   const formatter = new Intl.NumberFormat();
@@ -125,20 +126,23 @@ const ModalContent = ({ orderInfo }) => {
           </table>
 
           <div>
-            <p>{orderInfo?.order?.name}</p>
-            <p>{orderInfo?.order?.deliveryAddress}</p>
+            <p
+              style={{
+                textTransform: 'capitalize',
+              }}
+            >
+              {orderInfo?.order?.name}
+            </p>
+            <p
+              style={{
+                textTransform: 'capitalize',
+              }}
+            >
+              {orderInfo?.order?.deliveryAddress}
+            </p>
             <p>{orderInfo?.order?.phoneNumber}</p>
             <p>
-              {' '}
-              <span>
-                {new Date(orderInfo?.order?.createdAt).getHours()} :{' '}
-                {new Date(orderInfo?.order?.createdAt).getMinutes()}
-              </span>{' '}
-              .
-              <span>
-                {' '}
-                {new Date(orderInfo?.order?.createdAt).toLocaleDateString()}
-              </span>
+              <span>{createDateString(orderInfo?.order.createdAt)}</span>
             </p>
           </div>
         </div>
