@@ -25,7 +25,7 @@ const HomePageSidebar = () => {
             dispatch(toggleSidebar(false));
           }}
         >
-          <NavLink to="/login">Log in </NavLink>
+          <NavLink to="/sign-in">Sign In </NavLink>
           <span
             style={{
               fontSize: '0.6rem',

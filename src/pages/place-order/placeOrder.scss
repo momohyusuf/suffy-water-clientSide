@@ -74,7 +74,10 @@
     }
   }
   button {
-    margin: 1em 0;
+    margin: 1rem 0;
+  }
+  .place--order--btn {
+    margin: 2rem 0;
   }
   select {
     background-color: white;
@@ -86,6 +89,7 @@
     background-color: rgb(2, 74, 175);
   }
 }
+
 .item--order {
   display: flex;
   margin: 0.5em 0;

@@ -33,7 +33,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Homepage />} />
-        <Route path="login" element={<Login />} />
+        <Route path="sign-in" element={<Login />} />
         <Route path="place-order" element={<PlaceOrder />} />
       </Route>
 

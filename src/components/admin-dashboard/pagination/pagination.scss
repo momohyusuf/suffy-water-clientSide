@@ -2,7 +2,8 @@
   display: flex;
   column-gap: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-bottom: 5rem;
 
   .page-item {
     font-weight: 400;
@@ -23,6 +24,7 @@
       background: #091540;
     }
   }
+
   .page-item:nth-child(1) {
     background: #091540;
     border-radius: 4px;
@@ -41,5 +43,8 @@
     color: #bfd7ff;
     border-radius: 4px;
     background: #091540;
+  }
+  .disabled {
+    opacity: 0.3;
   }
 }

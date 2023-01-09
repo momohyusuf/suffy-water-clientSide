@@ -118,7 +118,7 @@ const Login = () => {
             />
           </div>
           <button disabled={isPending}>
-            {!isPending ? <span>Log In</span> : <PreloaderSmall />}
+            {!isPending ? <span>SIGN IN</span> : <PreloaderSmall />}
           </button>
         </form>
       </section>

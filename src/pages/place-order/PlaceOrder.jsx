@@ -288,7 +288,11 @@ const PlaceOrder = () => {
             value={orderInformation.phoneNumber}
             handleInputs={handleInputs}
           />
-          <button onClick={handleSubmit} disabled={isPending}>
+          <button
+            className="place--order--btn"
+            onClick={handleSubmit}
+            disabled={isPending}
+          >
             {!isPending ? <span>Confirm Order</span> : <PreloaderSmall />}
           </button>
         </form>
