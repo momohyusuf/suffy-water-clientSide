@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
           {/* **************************** */}
           <div className="company--address">
-            <IoLocationSharp />{' '}
+            <IoLocationSharp color="red" />{' '}
             <div>
               {' '}
               <p>Kes Corner Old Auchi Road,</p>
@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* ********************** */}
           <div className="company--address">
-            <IoLocationSharp />
+            <IoLocationSharp color="red" />
 
             <div>
               <p> Plot No: Bwari / FO2 / 1293,</p>
