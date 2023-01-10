@@ -44,7 +44,8 @@ h4,
   letter-spacing: 0.1rem;
   text-transform: capitalize;
   line-height: 1.5;
-  font-family: 'Merriweather', serif;
+  // font-family: 'Merriweather', serif;
+  font-family: sans-serif;
   color: #0f2751;
 }
 h1 {
@@ -59,6 +60,8 @@ h3 {
 h4 {
   font-size: 0.875rem;
 }
+input,
+select,
 p,
 li,
 td,
@@ -73,7 +76,7 @@ small {
     font-size: 3rem;
   }
   h2 {
-    font-size: 1.75rem;
+    font-size: 2.4rem;
   }
   h3 {
     font-size: 1.7rem;
@@ -132,12 +135,7 @@ button:disabled {
 .admin--page--content {
   padding: 1rem 1.6rem 1rem 23rem;
   width: 100%;
-  background: radial-gradient(
-    ellipse at center,
-    #fffeea 0%,
-    #fffeea 35%,
-    #b7e8eb 100%
-  );
+  background: #b7e8eb;
   min-height: 100vh;
 }
 

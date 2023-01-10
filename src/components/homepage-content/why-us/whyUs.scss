@@ -37,7 +37,10 @@
     }
     .top--content {
       display: flex;
-      column-gap: 4em;
+      column-gap: 4rem;
+    }
+    h2 {
+      font-size: 2.2rem;
     }
   }
 }

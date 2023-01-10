@@ -161,7 +161,7 @@ const SingleOrder = ({ getAllOrders }) => {
                 updateOrderStatus(singleOrder.order._id, e.target.value);
               }}
             >
-              <option value="">-- update --</option>
+              <option value=""> -- update -- </option>
               <option value="pending">Pending</option>
               <option value="fulfilled">Fulfilled</option>
               <option value="cancelled">Cancelled</option>

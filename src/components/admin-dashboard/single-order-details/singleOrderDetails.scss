@@ -67,7 +67,12 @@
     margin-bottom: 1rem;
     padding-bottom: 1rem;
 
-    column-gap: 1rem;
+    column-gap: 2rem;
+    div {
+      width: 280px;
+      max-width: 100%;
+      overflow: hidden;
+    }
     div :nth-child(1) {
       margin-bottom: 1rem;
       font-size: 16px;
@@ -86,12 +91,8 @@
     width: 15rem;
     padding: 0.3em;
     cursor: pointer;
-    background-color: #091540;
-    color: white;
+    // background-color: #091540;
+
     border-radius: 5px;
-  }
-  option {
-    color: White;
-    padding: 0.3em 0;
   }
 }

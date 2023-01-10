@@ -53,6 +53,15 @@ const PlaceOrder = () => {
   // submit orderInformation to data base
 
   const handleSubmit = async () => {
+    if (!orderInformation.numOfBags && !orderInformation.numOfPacks) {
+      dispatch(
+        toggleAlert({
+          showAlert: true,
+          message: 'At least some quantity of water is required',
+        })
+      );
+      return;
+    }
     if (
       orderInformation.location === 'Estako-west' &&
       orderInformation.numOfPacks
@@ -61,6 +70,16 @@ const PlaceOrder = () => {
         toggleAlert({
           showAlert: true,
           message: '75cl bottle water currently not available at Estako-west',
+        })
+      );
+      return;
+    }
+
+    if (totalAmount < 2000) {
+      dispatch(
+        toggleAlert({
+          showAlert: true,
+          message: 'Minimum order of ₦2000',
         })
       );
       return;
@@ -74,7 +93,7 @@ const PlaceOrder = () => {
       dispatch(
         toggleAlert({
           showAlert: true,
-          message: 'Please provide the required values',
+          message: 'Please ensure your contact information are provided',
         })
       );
       return;
