@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Coustard:wght@900&display=swap');
 // global styles
 html {
+  -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
 /* Fix Input Zoom on iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus, iPhone 8, iPhone X, XS, XS Max  */
