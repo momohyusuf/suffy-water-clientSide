@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="hero--container">
       <div className="hero--items">
         <article className="brand--description">
-          <h1>Don't just drink water, Drink clean and healthy water.</h1>
+          <h1>Don't just drink water, Drink clean and healthy water</h1>
           <p>
             Providing Nigerians with easy access to clean, affordable, and
             healthy drinking water
