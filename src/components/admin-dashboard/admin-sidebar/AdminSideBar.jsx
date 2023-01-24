@@ -120,10 +120,10 @@ const AdminSideBar = () => {
         style={{
           display: 'flex',
           alignItems: 'center',
-          position: 'absolute',
           bottom: '70px',
           cursor: 'pointer',
           fontSize: '1.2rem',
+          marginTop: '20rem',
         }}
         onClick={logoutAdmin}
         className="logout"

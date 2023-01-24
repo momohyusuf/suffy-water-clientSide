@@ -134,10 +134,11 @@ button:disabled {
 // **************
 
 .admin--page--content {
-  padding: 1rem 1.6rem 1rem 23rem;
+  padding: 1rem 1.6rem 1rem 2rem;
   width: 100%;
   background: #b7e8eb;
-  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
 }
 
 .logout {

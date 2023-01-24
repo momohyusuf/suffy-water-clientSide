@@ -7,8 +7,14 @@ const Admin = () => {
   return (
     <>
       <AdminNavbar />
-      <AdminSideBar />
-      <AdminPageContent />
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
+        <AdminSideBar />
+        <AdminPageContent />
+      </div>
     </>
   );
 };
