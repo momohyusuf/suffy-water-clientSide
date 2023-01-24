@@ -95,8 +95,7 @@ const Footer = () => {
           }}
         >
           <p>
-            Copyright &#169; 2022 Hamsal Investment Nigeria Limited, All Right
-            Reserved.
+            &#169; 2022 | Hamsal Investment Nigeria Limited, All Right Reserved.
           </p>
           <p
             style={{
