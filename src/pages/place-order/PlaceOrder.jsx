@@ -38,7 +38,7 @@ const PlaceOrder = () => {
     });
   };
   useEffect(() => {
-    document.title = 'Suffy Water | Place Order';
+    document.title = 'Place Order';
     setTotalAmount(
       Number(orderInformation.numOfBags) * Number(200) +
         Number(orderInformation.numOfPacks) * Number(800)

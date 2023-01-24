@@ -17,7 +17,11 @@ const Pagination = () => {
 
   return (
     <>
-      <div>
+      <div
+        style={{
+          margin: '2rem 0',
+        }}
+      >
         <ReactPaginate
           previousLabel={'<'}
           nextLabel={'>'}
