@@ -10,8 +10,8 @@ const Hero = () => {
         <article className="brand--description">
           <h1>Don't just drink water, Drink clean and healthy water.</h1>
           <p>
-            We are on a mission to provide Nigerians with easy access to clean,
-            affordable, and healthy drinking water.
+            Providing Nigerians with easy access to clean, affordable, and
+            healthy drinking water
           </p>
           <CustomBtn />
         </article>

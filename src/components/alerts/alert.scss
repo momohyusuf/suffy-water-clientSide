@@ -24,17 +24,18 @@
   }
   p {
     font-weight: 500;
-    color: hsl(209, 34%, 30%);
+    // color: hsl(209, 34%, 30%);
     letter-spacing: 0.1rem;
+    color: rgb(230, 2, 2);
   }
   position: fixed;
   top: 8%;
   left: 50%;
   z-index: 10;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: rgb(255, 223, 223);
   width: 300px;
-  border: 1px solid red;
+
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 6px;
   padding: 0.5em;

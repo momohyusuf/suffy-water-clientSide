@@ -15,18 +15,7 @@ const OurNumbers = () => {
 
   return (
     <section className="our--numbers--container">
-      {/* countUp code */}
       <div className="numbers">
-        {/* <div className="content" /> */}
-        {/* <CountUp
-          className="figure"
-          enableScrollSpy
-          start={0}
-          end={10000}
-          separator=","
-          duration={5}
-          useEasing
-        />{' '} */}
         <span id="counter" className="figure" />
         <span className="figure">+</span> <br />
         <FaHandshake className="numbers--icon--delivery" />
