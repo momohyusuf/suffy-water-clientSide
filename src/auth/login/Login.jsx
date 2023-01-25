@@ -24,7 +24,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'Suffy Water | Login';
+    document.title = 'Sign In';
   }, []);
 
   // +++++++++++++++++++++
