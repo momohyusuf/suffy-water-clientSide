@@ -94,8 +94,13 @@ const Footer = () => {
             marginTop: '3rem',
           }}
         >
-          <p>
-            &#169; 2022 | Hamsal Investment Nigeria Limited, All Right Reserved.
+          <p
+            style={{
+              marginTop: '2rem',
+            }}
+          >
+            &#169; 2022 | Suffy Packaging Nigeria Enterprise. All Right
+            Reserved.
           </p>
           <p
             style={{

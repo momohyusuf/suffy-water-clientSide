@@ -319,17 +319,23 @@ const PlaceOrder = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
+            gap: '1rem',
           }}
         >
           {' '}
           <FaMoneyBill
             style={{
-              fontSize: '1.5rem',
-              marginRight: '0.3rem',
+              fontSize: '3rem',
               color: 'green',
             }}
           />
-          <p>We currently only support payment on delivery</p>
+          <p
+            style={{
+              fontSize: '1.25rem',
+            }}
+          >
+            We currently only support payment on delivery
+          </p>
         </div>
       </div>
     </>
