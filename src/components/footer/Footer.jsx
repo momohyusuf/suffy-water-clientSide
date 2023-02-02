@@ -99,7 +99,7 @@ const Footer = () => {
               marginTop: '2rem',
             }}
           >
-            &#169; 2022 | Suffy Packaging Nigeria Enterprise. All Right
+            &#169; 2022 | Suffy Packaging Nigeria Enterprises. All Right
             Reserved.
           </p>
           <p
