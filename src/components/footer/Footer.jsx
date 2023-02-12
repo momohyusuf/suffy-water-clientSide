@@ -107,8 +107,15 @@ const Footer = () => {
               fontSize: '0.7rem',
             }}
           >
-            Powered by Starkweb Technologies. <br /> +23409166454614,
-            +2347067435729
+            Powered by{' '}
+            <a
+              href="http://starkwebtechnologies.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Starkweb Technologies
+            </a>
+            . <br /> www.starkwebtechnologies.com
           </p>
         </div>
       </section>
