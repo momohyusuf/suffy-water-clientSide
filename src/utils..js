@@ -3,10 +3,10 @@
 // *****************
 
 // *********** render sever url
-export const url = 'https://suffywater.onrender.com';
+// export const url = 'https://suffywater.onrender.com';
 // ******************
 // railway server url
-// export const url = 'https://suffy-server-side.up.railway.app';
+export const url = 'https://suffy-server-side.up.railway.app';
 
 export const createDateString = (value) => {
   const date = new Date(value);
