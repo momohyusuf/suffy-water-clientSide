@@ -26,14 +26,6 @@ const HomePageSidebar = () => {
           }}
         >
           <NavLink to="/sign-in">Sign In </NavLink>
-          <span
-            style={{
-              fontSize: '0.6rem',
-              color: 'red',
-            }}
-          >
-            Admin
-          </span>
         </p>
         <p
           onClick={() => {
